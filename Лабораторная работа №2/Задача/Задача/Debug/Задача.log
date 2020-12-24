@@ -1,0 +1,8 @@
+﻿  Задача.cpp
+C:\Users\arsenii.stashkov\Documents\Лабораторные работы C++\Лабораторная работа №2\Задача\Задача\Задача.cpp(34): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\arsenii.stashkov\Documents\Лабораторные работы C++\Лабораторная работа №2\Задача\Задача\Задача.cpp(35): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\arsenii.stashkov\Documents\Лабораторные работы C++\Лабораторная работа №2\Задача\Задача\Задача.cpp(51): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\arsenii.stashkov\Documents\Лабораторные работы C++\Лабораторная работа №2\Задача\Задача\Задача.cpp(52): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\arsenii.stashkov\Documents\Лабораторные работы C++\Лабораторная работа №2\Задача\Задача\Задача.cpp(53): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+C:\Users\arsenii.stashkov\Documents\Лабораторные работы C++\Лабораторная работа №2\Задача\Задача\Задача.cpp(54): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+  Задача.vcxproj -> C:\Users\arsenii.stashkov\Documents\Лабораторные работы C++\Лабораторная работа №2\Задача\Debug\Задача.exe
