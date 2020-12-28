@@ -43,11 +43,12 @@ void DataEntry()
 			record << dateOfBirth << "\n";
 			if (i < n - 1)
 			{
-				record << address << " мес.\n";
+				record << address << "\n";
+				record << "----------------------\n";
 			}
 			else
 			{
-				record << address << " мес.";
+				record << address;
 			}
 
 			cout << "----------------------\n";
@@ -116,14 +117,14 @@ void Print()
 
 	if (reading)
 	{
-
 		string name;
 		string dateOfBirth;
 		string address;
 		int n;
 
-		reading >> n;
-		cout << "Количество данных: " << n << "\n\n";
+		cout << "Введите количество данных: ";
+		cin >> n;
+		cout << "\n";
 
 		for (int i = 0; i < n; i++)
 		{
@@ -182,7 +183,7 @@ void DataChange()
 {
 	Copy();
 
-	ifstream reading("Buffer.txt");
+	ifstream reading("Buffer2.txt");
 	ofstream record("Buffer.txt", ios::out);
 
 	if (reading)
@@ -267,14 +268,14 @@ void DataChange()
 	record.close();
 	reading.close();
 
-	remove("Buffer.txt");
+	remove("Buffer2.txt");
 }
 
 // Копирование данных
 void Copy()
 {
 	ifstream reading("Buffer.txt");
-	ofstream record("Buffer.txt", ios::out);
+	ofstream record("Buffer2.txt", ios::out);
 
 	if (reading)
 	{
@@ -312,6 +313,9 @@ void Copy()
 	}
 	else
 		cout << "Ошибка открытия буферного файла!\n";
+
+	record.close();
+	reading.close();
 }
 
 // Кол-во данных из файла
@@ -339,7 +343,7 @@ void DeleteData()
 {
 	Copy();
 
-	ifstream reading("Buffer.txt");
+	ifstream reading("Buffer2.txt");
 	ofstream record("Buffer.txt", ios::out);
 
 	if (reading)
@@ -381,9 +385,14 @@ void DeleteData()
 							record << address;
 						}
 					}
-					cout << "Данные удалены!\n";
+					else
+					{
+						reading >> name;
+						reading >> dateOfBirth;
+						reading >> address;
+					}
 				}
-
+				cout << "Данные удалены!\n";
 			}
 			else
 				cout << "Номер введен неверно!\n";
@@ -396,6 +405,8 @@ void DeleteData()
 
 	record.close();
 	reading.close();
+
+	remove("Buffer2.txt");
 }
 
 // Добавление данных
@@ -431,7 +442,7 @@ void AddData()
 		cout << "Адрес: ";
 		cin >> address;
 
-
+		record << "----------------------\n";
 		record << name << "\n";
 		record << dateOfBirth << " руб.\n";
 		record << address << "\n";
@@ -478,12 +489,15 @@ void SaveData(string fileName)
 				{
 					record << address;
 				}
-				cout << "Данные сохранены в файле" << fileName << "\n";
 			}
+			cout << "Данные сохранены в файле" << fileName << "\n";
 		}
 		else
 			cout << "Ошибка открытия буферного файла!\n";
 	}
 	else
 		cout << "Ошибка открытия файла!\n";
+
+	record.close();
+	reading.close();
 }

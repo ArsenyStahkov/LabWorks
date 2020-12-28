@@ -18,14 +18,7 @@ void Menu()
 	cin >> stateMenu;
 }
 
-/*
-		Данные:
-		Фамилия Имя Отчество
-		Дата рождения
-		Адрес
-*/
-
-int main()
+void main()
 {
 	// Ввод и вывод на русском
 	SetConsoleCP(1251);
@@ -126,6 +119,7 @@ int main()
 
 		default:
 			cout << "Пункт меню выбран неверно!\n";
+			break;
 		}
 	}
 
@@ -140,6 +134,4 @@ int main()
 	}
 
 	cout << "Работа завершена\n";
-
-	return 0;
 }

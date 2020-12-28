@@ -1,4 +1,5 @@
 ﻿  Functions.cpp
   Базы данных.cpp
+C:\Users\arsenii.stashkov\Documents\Лабораторные работы C++\Лабораторная работа №10\Базы данных\Базы данных\Базы данных.cpp(22): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
   Создание кода...
   Базы данных.vcxproj -> C:\Users\arsenii.stashkov\Documents\Лабораторные работы C++\Лабораторная работа №10\Базы данных\Debug\Базы данных.exe
