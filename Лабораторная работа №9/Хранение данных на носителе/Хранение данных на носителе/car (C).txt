@@ -1,4 +1,0 @@
-Chevrolet 2010 1000000 black
-BMW 2001 1500000 gray
-Mercedes-Benz 1996 1200000 black
-Peugeot 2008 500000 blue
