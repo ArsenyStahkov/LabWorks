@@ -79,7 +79,7 @@ void Vector::Del()
 	cur--;
 }
 
-/*void Vector::HandleEvent(const TEvent& e)
+void Vector::HandleEvent(const TEvent& e)
 {
 	if (e.what == evMessage)
 	{
@@ -90,4 +90,4 @@ void Vector::Del()
 			p++;
 		}
 	}
-}*/
+}
