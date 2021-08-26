@@ -7,7 +7,7 @@ class Salary
 {
 	string fio;
 	double income;
-	int prize;
+	double prize;
 public:
 	Salary();
 	Salary(string, double, int);

@@ -3,9 +3,9 @@
 #include <Windows.h>
 using namespace std;
 
-fraction make_fraction(double F, int S)
+Fraction make_fraction(double F, int S)
 {
-	fraction t;
+	Fraction t;
 	t.Init(F, S);
 	return t;
 }
@@ -17,9 +17,10 @@ int main()
 	SetConsoleOutputCP(1251);
 	
 	// Определение переменной A
-	fraction A;
+	Fraction A;
 	// Ввод полей переменной А
 	A.Read();
+	// Вывод результата
 	cout << "\nРезультатом прогрессии aj (" << A.first << ", "<<A.second << ") будет " << A.Element() << endl;
 
 	return 0;

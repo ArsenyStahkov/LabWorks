@@ -1,12 +1,12 @@
 #include "Person.h"
-Person::Person(void)
+Person::Person()
 {
 	name = "";
 	age = 0;
 }
 
 // Деструктор
-Person::~Person(void)
+Person::~Person()
 {
 }
 

@@ -2,7 +2,7 @@
 #include <iostream>
 #include <Windows.h>
 
-struct fraction
+struct Fraction
 {
 	double first;
 	int second;

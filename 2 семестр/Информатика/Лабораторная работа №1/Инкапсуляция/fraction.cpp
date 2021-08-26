@@ -3,13 +3,13 @@
 using namespace std;
 
 // Инициализация полей структуры
-void fraction::Init(double F, int S)
+void Fraction::Init(double F, int S)
 {
 	first = F, second = S;
 }
 
 // Чтение значений полей структуры
-void fraction::Read()
+void Fraction::Read()
 {
 	cout << "\nВведите первое число: ";
 	cin >> first;
@@ -18,7 +18,7 @@ void fraction::Read()
 }
 
 // Вычисление j-го элемента прогрессии
-double fraction::Element()
+double Fraction::Element()
 {
 	return first * second;
 }

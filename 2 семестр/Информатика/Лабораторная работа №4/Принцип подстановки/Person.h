@@ -7,10 +7,10 @@ class Person
 {
 	// Конструктор без параметров
 public:
-	Person(void);
+	Person();
 public:
 	// Деструктор
-	virtual ~Person(void);
+	virtual ~Person();
 	// Конструктор с параметрами
 	Person(string, int);
 	// Конструктор копирования

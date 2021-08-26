@@ -1,26 +1,28 @@
 #pragma once
 #include <iostream>
 #include <string>
-
+#include <Windows.h>
+using namespace std;
+ 
 class Iterator
 {
-	// Дружественный класс
-	friend class Listing;
+    // Дружественный класс
+    friend class Listing;
 public:
-	// Конструктор без параметров
-	Iterator() { elem = 0; }
-	// Конструктор копирования
-	Iterator(const Iterator& it) { elem = it.elem; }
-	// Перегруженные операции сравнения
-	bool operator == (const Iterator& it) { return elem == it.elem; }
-	bool operator != (const Iterator& it) { return elem != it.elem; };
-	// Перегруженные операции инкремента и декремента
-	void operator++ () { ++elem; };
-	void operator-- () { --elem; }
-	// Перегруженная операция разыменования
-	int& operator *() const { return*elem; }
+    // Конструктор без параметров
+    Iterator() { elem = 0; }
+    // Конструктор копирования
+    Iterator(const Iterator& it) { elem = it.elem; }
+    // Перегруженные операции сравнения
+    bool operator == (const Iterator& it) { return elem == it.elem; }
+    bool operator != (const Iterator& it) { return elem != it.elem; };
+    // Перегруженные операции инкремента и декремента
+    void operator++ () { ++elem; };
+    void operator-- () { --elem; }
+    // Перегруженная операция разыменования
+    int& operator *() const { return*elem; }
 private:
-	int* elem;
+    int* elem;
 };
 
 class Listing
@@ -36,15 +38,16 @@ public:
 	Listing& operator = (const Listing& a);
 	// Доступ по индексу
 	int& operator[] (int index);
-	// Добавление константы
-	Listing operator+(const int k);
+	// Умножение элементов списков
+	Listing operator*(int a);
 	// Получение длины списка
-	//int operator () ();
+	int operator () ();
 	// Перегруженные операции ввода - вывода
 	friend ostream& operator << (ostream& out, const Listing& a);
 	friend istream& operator >> (istream& in, Listing& a);
 	Iterator first() { return beg; }
 	Iterator last() { return end; }
+	friend istream& operator >> (istream& in, Listing& a);
 private:
 	// Размер списка
 	int size;
@@ -54,10 +57,4 @@ private:
 	Iterator beg;
 	// Указатель на элемент, следующий за последним
 	Iterator end;
-private:
-	int size;
-	int* data;
-	Iterator beg;
-	Iterator end;
 };
-

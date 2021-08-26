@@ -5,9 +5,9 @@ class Student :
 	public Person
 {
 public:
-	Student(void);
+	Student();
 public:
-	~Student(void);
+	~Student();
 	Student(string, int, string, int);
 	Student(const Student&);
 	string Get_subject() { return subject; }
