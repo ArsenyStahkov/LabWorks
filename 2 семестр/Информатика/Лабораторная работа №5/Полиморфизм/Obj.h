@@ -1,10 +1,7 @@
 #pragma once
-class Obj
-{
-public:
-	Obj(void);
-public:
-	~Obj(void);
-	// Виртуальная функция
+struct Obj {
+	Obj() {}
+	~Obj() {}
+	// Чисто виртуальная функция
 	virtual void Show() = 0;
 };

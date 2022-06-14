@@ -7,23 +7,21 @@ int main()
 {
 	setlocale(LC_ALL, "Rus");
 
-	try
-	{
+	try {
+		cout << "Список с 2 пустыми элементами:\n";
 		Listing x(2);
 		Listing y;
 		cout << x;
-		cout << "Введите номер:\n";
+		cout << "\nВведите номер элемента:\n";
 		int i;
 		cin >> i;
 		cout << x[i] << endl;
 		y = x + 3;
 		cout << y;
-		x* 1;
+		x*1;
 		cout << x;
 	}
-	catch (Error & e)
-	{
-		e.what();
-	}
+	catch (Error & e) 
+		{ e.what(); }
 	return 0;
 }

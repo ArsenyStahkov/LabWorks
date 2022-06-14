@@ -4,14 +4,11 @@
 #include <Windows.h>
 using namespace std;
  
-class Iterator
-{
-    // Дружественный класс
+class Iterator {
     friend class Listing;
+	int* elem;
 public:
-    // Конструктор без параметров
     Iterator() { elem = 0; }
-    // Конструктор копирования
     Iterator(const Iterator& it) { elem = it.elem; }
     // Перегруженные операции сравнения
     bool operator == (const Iterator& it) { return elem == it.elem; }
@@ -21,20 +18,13 @@ public:
     void operator-- () { --elem; }
     // Перегруженная операция разыменования
     int& operator *() const { return*elem; }
-private:
-    int* elem;
 };
 
-class Listing
-{
-public:
+struct Listing {
 	// Конструктор с параметрами: выделяет память под S элементов и заполняет их значением k
 	Listing(int s, int k = 0);
-	// Конструктор с параметрами
 	Listing(const Listing& a);
-	// Деструктор
 	~Listing();
-	// Оператор присваивания
 	Listing& operator = (const Listing& a);
 	// Доступ по индексу
 	int& operator[] (int index);

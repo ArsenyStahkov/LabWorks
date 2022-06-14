@@ -3,117 +3,72 @@
 #include <iostream>
 using namespace std;
 
-Listing::Listing(int s)
-{
+Listing::Listing(int s) {
 	if (s > MAX_SIZE) throw MaxSizeError();
 	size = s;
 	beg = new int[s];
 	for (int i = 0; i < size; i++)
-	{
-		beg[i] = 0;
-	}
+		{ beg[i] = 0; }
 }
 
-Listing::Listing(const Listing& l)
-{
+Listing::Listing(const Listing& l) {
 	size = l.size;
 	beg = new int[size];
 	for (int i = 0; i < size; i++)
-	{
-		beg[i] = l.beg[i];
-	}
+		{ beg[i] = l.beg[i]; }
 }
 
-Listing::~Listing()
-{
-	if (beg != 0)
-	{
-		delete[] beg;
-	}
+Listing::~Listing() { 
+	if (beg != 0) { delete[] beg; } 
 }
 
-Listing::Listing(int s, int* mas)
-{
+Listing::Listing(int s, int* mas) {
 	size = s;
 	beg = new int[size];
 	for (int i = 0; i < size; i++)
-	{
-		beg[i] = mas[i];
-	}
+		{ beg[i] = mas[i]; }
 }
 
-const Listing& Listing::operator = (const Listing& l)
-{
-	if (this == &l)
-	{
-		return *this;
-	}
-	if (beg!= 0)
-	{
-		delete[] beg;
-	}
+const Listing& Listing::operator = (const Listing& l) {
+	if (this == &l) { return *this; }
+	if (beg!= 0) { delete[] beg; }
 	size = l.size;
 	beg = new int[size];
 	for (int i = 0; i < size; i++)
-	{
-		beg[i] = l.beg[i];
-	}
+		{ beg[i] = l.beg[i]; }
 	return *this;
 }
 
-ostream& operator << (ostream& out, const Listing& l)
-{
-	if (l.size == 0)
-	{
-		out << "Пусто\n";
-	}
-	else
-	{
+ostream& operator << (ostream& out, const Listing& l) {
+	if (l.size == 0) { out << "Пусто\n"; }
+	else {
 		for (int i = 0; i < l.size; i++)
-		{
-			out << l.beg[i] << " ";
-		}
+			{ out << l.beg[i] << " "; }
 		out << endl;
 	}
 	return out;
 }
 
-istream& operator >> (istream& in, Listing& l)
-{
+istream& operator >> (istream& in, Listing& l) {
 	for (int i = 0; i < l.size; i++)
-	{
-		cout << ">";
-		in >> l.beg[i];
-	}
+		{ cout << ">"; in >> l.beg[i]; }
 	return in;
 }
 
-int Listing::operator [] (int i)
-{
-	if (i < 0)
-	{
-		throw IndexError1();
-	}
-	if (i >= size)
-	{
-		throw IndexError2();
-	}
+int Listing::operator [] (int i) {
+	if (i < 0) { throw IndexError1(); }
+	if (i >= size) { throw IndexError2(); }
 	return beg[i];
 }
 
-Listing Listing::operator+(int a)
-{
-	if (size + 1 == MAX_SIZE)
-	{
-		throw MaxSizeError();
-	}
+Listing Listing::operator+(int a) {
+	if (size + 1 == MAX_SIZE) { throw MaxSizeError(); }
 	Listing temp(size + 1, beg);
 	temp.beg[size] = a;
 	return temp;
 }
 
-Listing Listing::operator*(int a)
-{
+Listing Listing::operator*(int a) {
 	Listing temp(size, beg);
 	size++;
 	beg = new int[size];

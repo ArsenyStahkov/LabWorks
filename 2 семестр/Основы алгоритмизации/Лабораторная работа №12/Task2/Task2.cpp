@@ -6,85 +6,60 @@ using namespace std;
 typedef set<double, Pair>TSet;
 typedef TSet::iterator it;
 
-TSet MakeSet(int n)
-{
+TSet MakeSet(int n) {
 	TSet s;
 	double a;
 	for (int i = 0; i < n; i++)
-	{
-		cin >> a;
-		s.insert(a);
-	}
+		{ cin >> a; s.insert(a); }
 	return s;
 }
 
-void PrintSet(TSet s)
-{
+void PrintSet(TSet s) {
 	for (int i = 0; i < s.size(); i++)
-	{
-		cout << i << " - " << s[i] << " \n";
-	}
+		{ cout << i << " - " << s[i] << " \n"; }
 }
 
-Pair Average(TSet s)
-{
+Pair Average(TSet s) {
 	Pair a = s[0];
 	for (int i = 1; i < s.size(); i++)
-	{
-		a += s[i];
-	}
+		{ a += s[i]; }
 	int n = s.size();
-	return a / n;
+	return a/n;
 }
 
-int Min(TSet v)
-{
+int Min(TSet v) {
 	it i = v.begin();
 	int num, k;
 	num = 0;
 	k = 0;
 	Pair s = (*i).second;
-	while (i != v.end())
-	{
-		if (s > (*i).second)
-		{
-			s = (*i).second;
-			num = k;
-		}
+	while (i != v.end()) {
+		if (s > (*i).second) { s = (*i).second; num = k; }
 		i++;
 		k++;
 	}
 	return num;
 }
 
-int Max(TSet v)
-{
+int Max(TSet v) {
 	it i = v.begin();
 	int num, k;
 	num = 0;
 	k = 0;
 	Pair s = (*i).second;
-	while (i != v.end())
-	{
-		if (s < (*i).second)
-		{
-			s = (*i).second;
-			num = k;
-		}
+	while (i != v.end()) {
+		if (s < (*i).second) { s = (*i).second; num = k; }
 		i++;
 		k++;
 	}
 	return num;
 }
 
-void Sum(TSet& v)
-{
+void Sum(TSet& v) {
 	Pair mi = v[Min(v)];
 	Pair ma = v[Max(v)];
 	for (int i = 0; i < v.size(); i++)
-	{
-		v[i] = v[i] + v[mi] + v[ma];
-	}
+		{ v[i] = v[i] + v[mi] + v[ma]; }
 }
 
 int main()

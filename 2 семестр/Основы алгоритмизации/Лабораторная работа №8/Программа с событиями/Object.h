@@ -1,9 +1,10 @@
 #pragma once
+#include <string>
 #include "Event.h"
+using namespace std;
 
-class Object
+struct Object
 {
-public:
 	Object(void);
 	virtual void Show() = 0;
 	virtual void Input() = 0;

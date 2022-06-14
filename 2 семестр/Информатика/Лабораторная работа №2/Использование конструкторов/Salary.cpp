@@ -2,70 +2,45 @@
 using namespace std;
 
 // Конструктор без параметров
-Salary::Salary()
-{
+Salary::Salary() {
 	fio = "";
 	income = 0;
-	prize = 0;
+	premium = 0;
 	cout << "Конструктор без параметров: " << this << endl;
 }
 
 // Конструктор с параметрами
-Salary::Salary(string N, double K, int S)
-{
-	fio = N;
-	income = K;
-	prize = S;
+Salary::Salary(string f, double i, int p) {
+	fio = f;
+	income = i;
+	premium = p;
 	cout << "\nКонструктор с параметрами: " << this << endl;
 }
 
 // Конструктор копирования
-Salary::Salary(const Salary& t)
-{
-	fio = t.fio;
-	income = t.income;
-	prize = t.prize;
+Salary::Salary(const Salary& s) {
+	fio = s.fio;
+	income = s.income;
+	premium = s.premium;
 	cout << "\nКонструктор копирования: " << this << endl;
 }
 
 // Деструктор
-Salary::~Salary()
-{
-	cout << "\nДеструктор: " << this << endl;
-}
+Salary::~Salary() { cout << "\nДеструктор: " << this << endl; }
 
 // Селекторы
-string Salary::get_fio()
-{
-	return fio;
-}
-double Salary::get_income()
-{
-	return income;
-}
-int Salary::get_prize()
-{
-	return prize;
-}
+string Salary::get_fio() { return fio; }
+double Salary::get_income() { return income; }
+int Salary::get_premium() { return premium; }
 
 // Модификаторы
-void Salary::set_fio(string N)
-{
-	fio = N;
-}
-void Salary::set_income(double K)
-{
-	income = K;
-}
-void Salary::set_prize(int S)
-{
-	prize = S;
-}
+void Salary::set_fio(string f) { fio = f; }
+void Salary::set_income(double k) { income = k; }
+void Salary::set_premium(int s) { premium = s; }
 
 // Метод для просмотра атрибутов
-void Salary::show()
-{
+void Salary::show() {
 	cout << "ФИО: " << fio << endl;
 	cout << "Оклад: " << income << endl;
-	cout << "Премия (% от оклада): " << prize * income / 100 << endl;
+	cout << "Премия (% от оклада): " << premium * income / 100 << endl;
 }

@@ -8,23 +8,17 @@ typedef queue<Pair>Qu;
 typedef vector<Pair>Vec;
 
 // Формирование очереди
-Qu MakeQueue(double n)
-{
+Qu MakeQueue(double n) {
 	Qu q;
 	Pair p;
 	for (int i = 0; i < n; i++)
-	{
-		cin >> p;
-		q.push(p);
-	}
+		{ cin >> p; q.push(p); }
 }
 
 // Копирование очереди в вектор
-Vec CopyQueueToVector(Qu q)
-{
+Vec CopyQueueToVector(Qu q) {
 	Vec v;
-	while (!q.empty())
-	{
+	while (!q.empty()) {
 		v.push_back(q.front());
 		q.pop();
 	}
@@ -32,24 +26,19 @@ Vec CopyQueueToVector(Qu q)
 }
 
 // Копирование вектора в очередь
-Qu CopyQueueToVector(Vec v)
-{
+Qu CopyQueueToVector(Vec v) {
 	Qu q;
 	for (int i = 0; i < v.size(); i++)
-	{
-		q.push(v[i]);
-	}
+		{ q.push(v[i]); }
 	return q;
 }
 
 // Добавление элемента
-void AddToQueue(Qu& q, Pair el)
-{
+void AddToQueue(Qu& q, Pair el) {
 	Vec v;
 	Pair p;
 	int i = 1;
-	while (!q.empty())
-	{
+	while (!q.empty()) {
 		p = q.front();
 		q.push(p);
 		i++;
@@ -59,26 +48,18 @@ void AddToQueue(Qu& q, Pair el)
 
 // Вывод очереди на экран
 template <class T>
-void Print()
-{
+void Print() {
 	vector<T> v = CopyQueueToVector(q);
 	while (!q.empty())
-	{
-		cout << q.front;
-	}
+		{ cout << q.front; }
 }
 
 // Нахождение макс. элемента
-Pair Max(Qu q)
-{
+Pair Max(Qu q) {
 	Pair ma = q.front();
 	Vec v = CopyQueueToVector(q);
-	while(!q.empty())
-	{
-		if (q.front() > ma)
-		{
-			ma = q.front();
-		}
+	while(!q.empty()) {
+		if (q.front() > ma) { ma = q.front(); }
 		q.pop();
 	}
 	q = CopyQueueToVector(v);
@@ -86,16 +67,11 @@ Pair Max(Qu q)
 }
 
 // Нахождение мин. элемента
-Pair Min(Qu q)
-{
+Pair Min(Qu q) {
 	Pair mi = q.front();
 	Vec v = CopyQueueToVector(q);
-	while (!q.empty())
-	{
-		if (q.front() < mi)
-		{
-			mi = q.front();
-		}
+	while (!q.empty()) {
+		if (q.front() < mi) { mi = q.front(); }
 		q.pop();
 	}
 	q = CopyQueueToVector(v);
@@ -103,14 +79,12 @@ Pair Min(Qu q)
 }
 
 //Нахождение суммы макс и мин. элементов
-void Sum(Qu& q)
-{
+void Sum(Qu& q) {
 	Pair mi = Min(q);
 	Pair ma = Max(q);
 	Vec v;
 	Pair p;
-	while (!q.empty())
-	{
+	while (!q.empty()) {
 		p = q.front();
 		v.push_back(p + mi + ma);
 		q.pop();

@@ -6,7 +6,6 @@ using namespace std;
 
 int main()
 {
-	// Ввод и вывод на русском
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 

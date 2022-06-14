@@ -1,18 +1,14 @@
 #pragma once
 #include "Object.h"
 #include <iostream>
-
 using namespace std;
 
-class Print :
-	public Object
-{
-public:
+struct Print : public Object {
 	Print(void);
-public:
 	virtual ~Print(void);
 	void Show();
 	void Input();
+	void HandleEvent(const TEvent&);
 	Print(string, string);
 	Print(const Print&);
 	string Get_name() { return name; }
@@ -24,4 +20,3 @@ protected:
 	string name;
 	string author;
 };
-

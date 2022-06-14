@@ -8,16 +8,10 @@ const int cmShow = 4;
 const int cmMake = 6;
 const int cmQuit = 101;
 
-struct TEvent
-{
+struct TEvent {
 	int what;
-	union
-	{
+	union {
 		int command;
-		struct
-		{
-			int message;
-			int a;
-		};
+		struct { int message; int a; };
 	};
 };

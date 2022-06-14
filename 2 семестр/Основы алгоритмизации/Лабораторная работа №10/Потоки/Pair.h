@@ -4,8 +4,9 @@
 #include <string>
 using namespace std;
 
-class Pair
-{
+class Pair {
+	int first;
+	double second;
 public:
 	Pair();
 	Pair(int, double);
@@ -15,9 +16,5 @@ public:
 	friend istream& operator >> (istream& in, Pair& p);
 	friend fstream& operator >> (fstream& fin, Pair& p);
 	friend fstream& operator << (fstream& fout, const Pair& p);
-public:
 	~Pair();
-private:
-	int first;
-	double second;
 };

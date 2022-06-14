@@ -4,12 +4,9 @@
 #include <iostream>
 using namespace std;
 
-class Vector
-{
-public:
+struct Vector {
 	Vector(void);
 	Vector(int);
-public:
 	~Vector(void);
 	void Add(Obj*);
 	friend ostream& operator << (ostream& out, const Vector&);

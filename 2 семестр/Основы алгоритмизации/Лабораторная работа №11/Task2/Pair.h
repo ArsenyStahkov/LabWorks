@@ -2,8 +2,7 @@
 #include <iostream>
 using namespace std;
 
-class Pair
-{
+class Pair {
 	int first;
 	double second;
 public:
@@ -17,12 +16,14 @@ public:
 	void set_second(double s) { second = s; }
 	// Перегруженные операции
 	Pair& operator = (const Pair&);
-	Pair operator- (const Pair&);
-	Pair operator* (const Pair&);
+	Pair operator - (const Pair&);
+	Pair operator / (const Pair&);
+	Pair operator * (const Pair&);
+	Pair operator + (const Pair&);
+	Pair operator [] (const Pair&);
 	bool operator > (const Pair&);
 	bool operator < (const Pair&);
 	// Глобальные функции ввода-вывода
 	friend istream& operator >> (istream& in, Pair& p);
 	friend ostream& operator << (ostream& out, const Pair& t);
 };
-

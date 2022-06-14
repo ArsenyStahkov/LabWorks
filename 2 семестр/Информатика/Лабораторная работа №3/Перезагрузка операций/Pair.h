@@ -1,9 +1,7 @@
-#pragma once
 #include <iostream>
 using namespace std;
 
-class Pair
-{
+class Pair {
 	int first;
 	double second;
 public:
@@ -15,12 +13,9 @@ public:
 	double get_second() { return second; }
 	void set_first(int f) { first = f; }
 	void set_second(double s) { second = s; }
-	// Перегруженные операции
-	Pair& operator = (const Pair&);
-	Pair& operator++();
-	Pair operator-(const Pair&);
-	Pair operator*(const Pair&);
-	// Глобальные функции ввода - вывода
+	Pair& operator= (const Pair&);
+	Pair operator- (const Pair&);
+	Pair operator+ (const Pair&);
 	friend istream& operator >> (istream& in, Pair& t);
 	friend ostream& operator << (ostream& out, const Pair& t);
 };

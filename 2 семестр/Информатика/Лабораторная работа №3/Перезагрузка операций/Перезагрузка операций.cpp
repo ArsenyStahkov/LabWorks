@@ -1,11 +1,10 @@
-﻿#include "Pair.h"
-#include <iostream>
+﻿#include <iostream>
 #include <Windows.h>
+#include "Pair.h"
 using namespace std;
 
-int main()
+int main() 
 {
-	// Ввод и вывод на русском
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
@@ -21,6 +20,7 @@ int main()
 	cout << "\n\nПервая пара = " << a << endl;
 	cout << "Вторая пара = " << b << endl;
 	cout << "Вычитание пар чисел = " << c << endl;
-	c = a * b;
-	cout << "Добавление константы (10) к первой паре = " << c << endl;
+	c = a + b;
+	cout << "Добавление константы (10.5) к первой паре = " << c << endl;
+	return 0;
 }

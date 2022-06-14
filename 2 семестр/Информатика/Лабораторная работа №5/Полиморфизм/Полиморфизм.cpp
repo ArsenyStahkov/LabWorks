@@ -9,14 +9,15 @@ using namespace std;
 
 void main()
 {
-	// Ввод и вывод на русском
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
 	Vector v(5);
-	Student a;
+	Person a;
+	cout << "Заполните данные Person:\n";
 	cin >> a;
 	Student b;
+	cout << "\nЗаполните данные Student:\n";
 	cin >> b;
 	Obj* p = &a;
 	v.Add(p);

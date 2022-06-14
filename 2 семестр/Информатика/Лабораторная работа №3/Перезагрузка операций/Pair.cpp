@@ -3,8 +3,7 @@
 using namespace std;
 
 // Перегрузка операции присваивания
-Pair& Pair::operator = (const Pair& t)
-{
+Pair& Pair::operator=(const Pair& t) {
 	if (&t == this) return *this;
 	first = t.first;
 	second = t.second;
@@ -12,8 +11,7 @@ Pair& Pair::operator = (const Pair& t)
 }
 
 // Перегрузка вычитания пар чисел
-Pair Pair::operator-(const Pair& t)
-{
+Pair Pair::operator-(const Pair& t) {
 	int temp = first;
 	int temp2 = t.first;
 	double tempDouble = second;
@@ -25,8 +23,7 @@ Pair Pair::operator-(const Pair& t)
 }
 
 // Перегрузка операции добавления константы к паре
-Pair Pair::operator*(const Pair& a)
-{
+Pair Pair::operator+(const Pair& a) {
 	const double number = 10.5;
 	int temp = first;
 	double temp2 = second;
@@ -45,8 +42,7 @@ Pair Pair::operator*(const Pair& a)
 }
 
 // Перегрузка глобальной функции-операции ввода
-istream& operator >> (istream & in, Pair & t)
-{
+istream& operator >> (istream & in, Pair & t) {
 	cout << "Первое число (int): ";
 	in >> t.first;
 	cout << "Второе число (double): ";
@@ -55,7 +51,6 @@ istream& operator >> (istream & in, Pair & t)
 }
 
 // Перегрузка глобальной функции-оператора вывода
-ostream& operator << (ostream & out, const Pair & t)
-{
+ostream& operator << (ostream & out, const Pair & t) {
 	return (out << t.first << " : " << t.second);
 }

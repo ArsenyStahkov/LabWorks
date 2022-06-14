@@ -5,12 +5,9 @@
 using namespace std;
 
 const int MAX_SIZE = 30;
-class Listing
-{
-public:
+struct Listing {
 	int size;
 	int* beg;
-public:
 	Listing() { size = 0; beg = 0; }
 	Listing(int s);
 	Listing(int s, int* mas);

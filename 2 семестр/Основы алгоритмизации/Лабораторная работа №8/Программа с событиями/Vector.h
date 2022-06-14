@@ -1,28 +1,17 @@
 #pragma once
-class Vector
-{
-public:
+#include "object.h"
+
+struct Vector {
 	Vector(int);
-public:
 	~Vector(void);
+	Vector();
 	void Add();
 	void Del();
 	void Show();
 	int operator() ();
 protected:
-	Object** beg;
 	int size;
 	int cur;
-	/*void Vector::HandleEvent(const TEvent& e)
-	{
-		if (e.what == evMessage)
-		{
-			Object** p = beg;
-			for (int i = 0; i < cur; i++)
-			{
-				(*p)->HandleEvent(e);
-				p++;
-			}
-		}
-	}*/
+	Object** beg;
+	void HandleEvent(const TEvent& e);
 };

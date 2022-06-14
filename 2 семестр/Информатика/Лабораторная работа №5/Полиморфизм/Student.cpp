@@ -1,45 +1,24 @@
 #include "Student.h"
 
 // Конструктор без параметров
-Student::Student(void) :Person()
-{
-	subject = "";
-	grade = 0;
-}
+Student::Student(void) : Person() { subject = ""; grade = 0; }
 
 // Деструктор
-Student::~Student(void)
-{
-}
+Student::~Student(void) {}
 
 // Конструктор с параметрами
-Student::Student(string N, int A, string S, int G) :Person(N, A)
-{
-	subject = S;
-	grade = G;
-}
+Student::Student(string N, int A, string S, int G) :Person(N, A) { subject = S; grade = G; }
 
 // Конструктор копирования
-Student::Student(const Student& L)
-{
-	name = L.name;
-	age = L.age;
-}
+Student::Student(const Student& L) { name = L.name; age = L.age; }
 
 // Модификаторы
-void Student::Set_Subject(string S)
-{
-	subject = S;
-}
+void Student::Set_Subject(string S) { subject = S; }
 
-void Student::Set_Grade(int G)
-{
-	grade = G;
-}
+void Student::Set_Grade(int G) { grade = G; }
 
 // Операция присваивания
-Student& Student::operator = (const Student& l)
-{
+Student& Student::operator = (const Student& l) {
 	if (&l == this) return *this;
 	name = l.name;
 	age = l.age;
@@ -49,22 +28,25 @@ Student& Student::operator = (const Student& l)
 }
 
 // Операция ввода
-istream& operator >> (istream & in, Student & l)
-{
+istream& operator >> (istream & in, Student & l) {
 	cout << "\nИмя: ";
 	in >> l.name;
-	cout << "\nВозраст: ";
+	cout << "Возраст: ";
 	in >> l.age;
-	cout << "\nПредмет: ";
+	cout << "Предмет: ";
 	in >> l.subject;
-	cout << "\nОценка: ";
+	cout << "Оценка: ";
 	in >> l.grade;
-	return in;
+	if (l.grade < 3 && l.grade > 0)
+		{ cout << "\nОценка неуд!: " << l.grade; }
+	else if (l.grade < 0 || l.grade > 5) 
+		{ cout << "\nНекорректно введена оценка"; }
+	else
+		{ return in; }
 }
 
 // Операция вывода
-ostream& operator << (ostream & out, const Student & l)
-{
+ostream& operator << (ostream & out, const Student & l) {
 	out << "\nИмя: " << l.name;
 	out << "\nВозраст: " << l.age;
 	out << "\nПредмет: " << l.subject;
@@ -73,22 +55,10 @@ ostream& operator << (ostream & out, const Student & l)
 	return out;
 }
 
-void Student::Show()
-{
+void Student::Show() {
 	cout << "\nИмя: " << name;
 	cout << "\nВозраст: " << age;
 	cout << "\nПредмет: " << subject;
-	if (grade < 3 && grade > 0)
-	{
-		cout << "\nОценка неуд!: " << grade;
-	}
-	else if (grade < 0 || grade > 5)
-	{
-		cout << "\nНекорректно введена оценка";
-	}
-	else
-	{
-		cout << "\nОценка: " << grade;
-	}
+	cout << "\nОценка: " << grade;
 	cout << "\n";
 }

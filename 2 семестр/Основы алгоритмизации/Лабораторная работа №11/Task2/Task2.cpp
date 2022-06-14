@@ -5,87 +5,60 @@
 using namespace std;
 
 typedef list<double>Listing;
-Listing MakeVector(double n)
-{
+Listing MakeVector(double n) {
 	Listing l;
-	for (int i = 0; i < n; i++)
-	{
-		int a = rand() % 100 - 50;
-		l.push_back(a);
-	}
+	for (int i = 0; i < n; i++) 
+		{ int a = rand() % 100 - 50; l.push_back(a); }
 	return l;
 }
 
-void PrintVector(Listing l)
-{
+void PrintVector(Listing l) {
 	for (int i = 0; i < l.size(); i++)
-	{
-		cout << l[i] << " ";
-	}
+		{ cout << l[i] << " "; }
 	cout << endl;
 }
 
-double Average(Listing l)
-{
+double Average(Listing l) {
 	double a = 0;
 	for (int i = 0; i < l.size(); i++)
-	{
-		a += l[i];
-	}
+		{ a += l[i]; }
 	int n = l.size();
 	return a / n;
 }
 
-void AddValue(Listing& l, double el)
-{
+void AddValue(Listing& l, double el) {
 	int pos = l.size();
 	l.insert(l.begin() + pos, el);
 }
 
-int Min(Listing l)
-{
+int Min(Listing l) {
 	int mi = l[0], n = 0;
-	for (int i = 0; i < l.size(); i++)
-	{
-		if (mi > l[i])
-		{
-			mi = l[i];
-			n = i;
-		}
+	for (int i = 0; i < l.size(); i++) {
+		if (mi > l[i]) { mi = l[i]; n = i; }
 	}
 	return n;
 }
 
-int Max(Listing l)
-{
+int Max(Listing l) {
 	int ma = l[0], n = 0;
-	for (int i = 0; i < l.size(); i++)
-	{
-		if (ma < l[i])
-		{
-			ma = l[i];
-			n = i;
-		}
+	for (int i = 0; i < l.size(); i++) {
+		if (ma < l[i]) { ma = l[i]; n = i; }
 	}
 	return n;
 }
 
-void Sum(Listing& l)
-{
+void Sum(Listing& l) {
 	double mi = Min(l);
 	double ma = Max(l);
 	for (int i = 0; i < l.size(); i++)
-	{
-		l[i] = l[i] + (l[mi] + l[ma]);
-	}
+		{ l[i] = l[i] + (l[mi] + l[ma]); }
 }
 
 int main()
 {
 	setlocale(LC_ALL, "Rus");
 
-	try
-	{
+	try {
 		list<double> l;
 		list<double>::iterator vi = l.begin();
 		int n;
@@ -97,8 +70,7 @@ int main()
 		AddValue(l, el);
 		PrintVector(l);
 	}
-	catch (int)
-	{
+	catch (int) {
 		cout << "Ошибка!\n";
 	}
 }

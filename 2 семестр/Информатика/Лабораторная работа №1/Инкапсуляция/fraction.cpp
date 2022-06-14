@@ -1,24 +1,18 @@
-#include <iostream>
 #include "fraction.h"
+#include <iostream>
 using namespace std;
 
-// Инициализация полей структуры
-void Fraction::Init(double F, int S)
-{
-	first = F, second = S;
-}
+void Fraction::Init(double f, int s) { first = f, second = s; }
 
-// Чтение значений полей структуры
-void Fraction::Read()
-{
-	cout << "\nВведите первое число: ";
+void Fraction::Read() {
+	cout << "Введите первый элемент прогрессии (a): ";
 	cin >> first;
-	cout << "\nВведите второе число: ";
+	cout << "\nВведите постоянное отношение (r): ";
 	cin >> second;
 }
 
-// Вычисление j-го элемента прогрессии
-double Fraction::Element()
-{
-	return first * second;
-}
+void Fraction::Show() { 
+	int j;
+	j = 3;
+
+	cout << "\nРезультатом прогрессии чисел " << first << " и " << second << " будет " << first * pow(second, j) << endl; }

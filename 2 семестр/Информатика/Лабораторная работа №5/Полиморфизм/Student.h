@@ -1,12 +1,8 @@
 #pragma once
 #include "Person.h"
 
-class Student :
-	public Person
-{
-public:
+struct Student : public Person {
 	Student(void);
-public:
 	~Student(void);
 	void Show();
 	Student(string, int, string, int);

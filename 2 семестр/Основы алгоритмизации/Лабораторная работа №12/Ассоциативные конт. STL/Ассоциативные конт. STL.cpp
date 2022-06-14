@@ -8,13 +8,11 @@ typedef set<double> TSet;
 typedef TSet::iterator it;
 
 // Формирование контейнера
-TSet MakeSet(int n)
-{
+TSet MakeSet(int n) {
 	// Пустой контейнер
 	TSet s;
 	double a;
-	for (int i = 0; i < n; i++)
-	{
+	for (int i = 0; i < n; i++) {
 		cout << "?";
 		cin >> a;
 		// Добавляем значение в контейнер
@@ -25,43 +23,31 @@ TSet MakeSet(int n)
 }
 
 // Вывод контейнера на экран
-void PrintSet(TSet s)
-{
+void PrintSet(TSet s) {
 	it p;
 	int i;
 	for (p = s.begin(), i = 0; p != s.end(); ++p, i++)
-	{
-		cout << i << " : " << *p << " \n";
-	}
+		{ cout << i << " : " << *p << " \n"; }
 }
 
 // Среднее арифметическое
-int Average(TSet v)
-{
+int Average(TSet v) {
 	double a = 0;
 	for (int i = 0; i < v.size(); i++)
-	{
-		a += v[i];
-	}
+		{ a += v[i]; }
 	int n = v.size();
 	return a / n;
 }
 
 // Минимальное значение
-double Min(TSet v)
-{
+double Min(TSet v) {
 	it i = v.begin();
 	int num, k;
 	num = 0;
 	k = 0;
 	int mi = (*i).second;
-	while (i != v.end())
-	{
-		if (mi > (*i).second)
-		{
-			mi = (*i).second;
-			num = k;
-		}
+	while (i != v.end()) {
+		if (mi > (*i).second) { mi = (*i).second; num = k; }
 		i++;
 		k++;
 	}
@@ -76,13 +62,8 @@ double Max(TSet v)
 	num = 0;
 	k = 0;
 	int ma = (*i).second;
-	while (i != v.end())
-	{
-		if (ma < (*i).second)
-		{
-			ma = (*i).second;
-			num = k;
-		}
+	while (i != v.end()) {
+		if (ma < (*i).second) { ma = (*i).second; num = k; }
 		i++;
 		k++;
 	}
@@ -90,27 +71,24 @@ double Max(TSet v)
 }
 
 // Сумма мин. и макс. значений
-void Sum(TSet &v)
-{
+void Sum(TSet &v) {
 	int mi = v[Min(v)];
 	int ma = v[Max(v)];
 	for (int i = 0; i < v.size(); i++)
-	{
-		v[i] = v[i] + mi + ma;
-	}
+		{ v[i] = v[i] + mi + ma; }
 }
 
 int main()
 {
 	int n;
-	cout << "N?";
+	cout << "Введите число: ";
 	cin >> n;
 	cin.get();
 	TSet s = MakeSet(n);
 	PrintSet(s);
 	cin.get();
 	double el = Average(s);
-	cout << "Average = " << el << endl;
+	cout << "Среднее значение = " << el << endl;
 	s.insert(el);
 	PrintSet(s);
 	return 0;

@@ -5,8 +5,7 @@
 using namespace std;
 
 const int MAX_SIZE = 30;
-class Listing
-{
+class Listing {
 	int size;
 	int* beg;
 public:

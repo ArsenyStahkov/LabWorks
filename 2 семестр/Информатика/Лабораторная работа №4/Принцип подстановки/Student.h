@@ -1,12 +1,7 @@
-#pragma once
 #include "Person.h"
 
-class Student :
-	public Person
-{
-public:
+struct Student : public Person {
 	Student();
-public:
 	~Student();
 	Student(string, int, string, int);
 	Student(const Student&);
@@ -22,4 +17,3 @@ protected:
 	string subject;
 	int grade;
 };
-

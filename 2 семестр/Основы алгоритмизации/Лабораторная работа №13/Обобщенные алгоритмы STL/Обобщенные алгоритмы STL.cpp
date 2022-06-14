@@ -8,51 +8,37 @@ typedef list <Pair> TList;
 Pair a;
 
 // Формируем список
-TList MakeList(int n)
-{
+TList MakeList(int n) {
 	Pair a;
 	TList l;
 	for (int i = 0; i < n; i++)
-	{
-		cin >> a;
-		l.push_back(a);
-	}
+		{ cin >> a; l.push_back(a); }
 	return l;
 }
 
 // Выводим список на экран
-void PrintList(TList l)
-{
+void PrintList(TList l) {
 	for (int i = 0; i < l.size(); i++)
-	{
-		cout << l[i] << endl;
-	}
+		{ cout << l[i] << endl; }
 	cout << endl;
 }
 
 // Находим среднее значение в списке
-Pair Average(TList l)
-{
+Pair Average(TList l) {
 	Pair a = l[0];
 	for (int i = 1; i < l.size(); i++)
-	{
-		a = a + l[i];
-	}
+		{ a = a + l[i]; }
 	int n = l.size();
-	return a / n;
+	return a/n;
 }
 
 // Добавляем среднее значение в конец контейнера
-void AddValue(TList l, Pair el)
-{
-	l.insert(l.begin() + l.size(), el);
+void AddValue(TList l, Pair el) { 
+	l.insert(l.begin() + l.size(), el); 
 }
 
 // Сумма максимального и минимального элементов
-void Sum(Pair& p, Pair a, Pair b)
-{
-	p = p + a + b;
-}
+void Sum(Pair& p, Pair a, Pair b) { p = p + a + b; }
 
 int main()
 {
@@ -74,6 +60,5 @@ int main()
 	i = max_element(l.begin(), l.end());
 	k = min_element(l.begin(), l.end());
 	for_each(l.begin(), l.end(), Sum);
-
 	return 0;
 }

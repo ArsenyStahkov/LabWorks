@@ -3,63 +3,55 @@
 #include <iostream>
 using namespace std;
 
-// Базовый класс
-class Error
-{
-public:
+// Базовая структура
+struct Error {
 	virtual void what() {};
 };
+
 // Ошибка в индексе вектора
-class IndexError :public Error
-{
-protected:
-	string msg;
-public:
+struct IndexError : public Error {
 	IndexError() { msg = "Ошибка индекса\n"; }
 	virtual void what() { cout << msg; }
-};
-// Ошибка в размере вектора
-class SizeError :public Error
-{
 protected:
 	string msg;
-public:
+};
+
+// Ошибка в размере вектора
+struct SizeError : public Error {
 	SizeError() { msg = "Ошибка длины\n"; }
 	virtual void what() { cout << msg; }
-};
-// Превышение макс. размера
-class MaxSizeError :public SizeError
-{
 protected:
-	string msg_;
-public:
+	string msg;
+};
+
+// Превышение макс. размера
+struct MaxSizeError : public SizeError {
 	MaxSizeError() { SizeError(); msg = "Длина > MAXSIZE\n"; }
 	virtual void what() { cout << msg << msg_; }
-};
-// Удаление из пустого вектора
-class EmptySizeError :public SizeError
-{
 protected:
 	string msg_;
-public:
+};
+
+// Удаление из пустого вектора
+struct EmptySizeError : public SizeError {
 	EmptySizeError() { SizeError(); msg_ = "Вектор пустой\n"; }
 	virtual void what() { cout << msg << msg_; }
-};
-// Индекс < 0
-class IndexError1 : public IndexError
-{
 protected:
 	string msg_;
-public:
+};
+
+// Индекс < 0
+struct IndexError1 : public IndexError {
 	IndexError1() { IndexError(); msg_ = "Индекс <0\n"; }
 	virtual void what() { cout << msg << msg_; }
-};
-// Индекс больше текущего размера вектора
-class IndexError2 :public IndexError
-{
 protected:
 	string msg_;
-public:
+};
+
+// Индекс больше текущего размера вектора
+struct IndexError2 :public IndexError {
 	IndexError2() { IndexError(); msg_ = "Индекс > длины\n"; }
 	virtual void what() { cout << msg << msg_; }
+protected:
+	string msg_;
 };

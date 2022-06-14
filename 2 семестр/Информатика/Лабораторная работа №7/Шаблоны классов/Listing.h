@@ -5,9 +5,7 @@ using namespace std;
 
 // T - параметр шаблона
 template <class T>
-class Listing
-{
-public:
+struct Listing {
 	// Конструктор с параметрами: выделяет память под s элементов и заполняет их значением k
 	Listing(int s, T k);
 	// Конструктор с параметрами
@@ -29,8 +27,7 @@ private:
 };
 
 template <class T>
-Listing<T>::Listing(int s, T k)
-{
+Listing<T>::Listing(int s, T k) {
 	size = s;
 	data = new T[size];
 	for (int i = 0; i < size; i++)
@@ -38,8 +35,7 @@ Listing<T>::Listing(int s, T k)
 }
 
 template <class T>
-Listing<T>::Listing(const Listing& a)
-{
+Listing<T>::Listing(const Listing& a) {
 	size = a.size;
 	data = new T[size];
 	for (int i = 0; i < size; i++)
@@ -47,15 +43,13 @@ Listing<T>::Listing(const Listing& a)
 }
 
 template <class T>
-Listing<T>::~Listing()
-{
+Listing<T>::~Listing() {
 	delete[] data;
 	data = 0;
 }
 
 template <class T>
-Listing<T>& Listing<T>::operator = (const Listing<T>& a)
-{
+Listing<T>& Listing<T>::operator = (const Listing<T>& a) {
 	if (this == &a)
 		return *this;
 	size = a.size;
@@ -68,31 +62,26 @@ Listing<T>& Listing<T>::operator = (const Listing<T>& a)
 }
 
 template <class T>
-T& Listing<T>::operator[] (int index)
-{
+T& Listing<T>::operator[] (int index) {
 	if (index < size)
 		return data[index];
 	else
 		cout << "\nОшибка! Индекс больше, чем длина списка";
 }
 
+// Переопределение оператора вызова функции
 template <class T>
-int Listing<T>::operator() ()
-{
-	return size;
-}
+int Listing<T>::operator() () { return size; }
 
 template <class T>
-ostream& operator << (ostream& out, const Listing<T>& a)
-{
+ostream& operator << (ostream& out, const Listing<T>& a) {
 	for (int i = 0; i < a.size; ++i)
 		out << a.data[i] << " ";
 	return out;
 }
 
 template <class T>
-istream& operator >> (istream& in, Listing<T>& a)
-{
+istream& operator >> (istream& in, Listing<T>& a) {
 	for (int i = 0; i < a.size; ++i)
 		in >> a.data[i];
 	return in;

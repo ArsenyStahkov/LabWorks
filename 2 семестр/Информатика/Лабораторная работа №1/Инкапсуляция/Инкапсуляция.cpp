@@ -1,14 +1,8 @@
 ﻿#include <iostream>
-#include "fraction.h"
 #include <Windows.h>
+#include <Math.h>
+#include "fraction.h"
 using namespace std;
-
-Fraction make_fraction(double F, int S)
-{
-	Fraction t;
-	t.Init(F, S);
-	return t;
-}
 
 int main()
 {
@@ -16,12 +10,9 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	
-	// Определение переменной A
-	Fraction A;
-	// Ввод полей переменной А
-	A.Read();
-	// Вывод результата
-	cout << "\nРезультатом прогрессии aj (" << A.first << ", "<<A.second << ") будет " << A.Element() << endl;
+	Fraction F;
+	F.Read();
+	F.Show();
 
 	return 0;
 }

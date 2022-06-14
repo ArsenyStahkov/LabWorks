@@ -4,12 +4,8 @@
 #include "Obj.h"
 using namespace std;
 
-class Person :
-	public Obj
-{
-public:
+struct Person : public Obj {
 	Person(void);
-public:
 	virtual ~Person(void);
 	void Show();
 	Person(string, int);

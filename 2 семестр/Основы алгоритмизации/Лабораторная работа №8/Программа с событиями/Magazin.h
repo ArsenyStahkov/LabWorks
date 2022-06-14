@@ -1,15 +1,10 @@
 #pragma once
 #include "Print.h"
 #include <iostream>
-
 using namespace std;
 
-class Magazine :
-	public Print
-{
-public:
+struct Magazine : public Print {
 	Magazine(void);
-public:
 	~Magazine(void);
 	void Show();
 	void Input();
