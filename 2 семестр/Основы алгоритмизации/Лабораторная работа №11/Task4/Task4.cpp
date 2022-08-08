@@ -11,8 +11,9 @@ typedef vector<Pair>Vec;
 Qu MakeQueue(double n) {
 	Qu q;
 	Pair p;
-	for (int i = 0; i < n; i++)
-		{ cin >> p; q.push(p); }
+	for (int i = 0; i < n; i++) { 
+		cin >> p; q.push(p); 
+	}
 }
 
 // Копирование очереди в вектор
@@ -28,8 +29,9 @@ Vec CopyQueueToVector(Qu q) {
 // Копирование вектора в очередь
 Qu CopyQueueToVector(Vec v) {
 	Qu q;
-	for (int i = 0; i < v.size(); i++)
-		{ q.push(v[i]); }
+	for (int i = 0; i < v.size(); i++) { 
+		q.push(v[i]); 
+	}
 	return q;
 }
 
@@ -50,8 +52,9 @@ void AddToQueue(Qu& q, Pair el) {
 template <class T>
 void Print() {
 	vector<T> v = CopyQueueToVector(q);
-	while (!q.empty())
-		{ cout << q.front; }
+	while (!q.empty()) { 
+		cout << q.front; 
+	}
 }
 
 // Нахождение макс. элемента
@@ -59,7 +62,9 @@ Pair Max(Qu q) {
 	Pair ma = q.front();
 	Vec v = CopyQueueToVector(q);
 	while(!q.empty()) {
-		if (q.front() > ma) { ma = q.front(); }
+		if (q.front() > ma) { 
+			ma = q.front(); 
+		}
 		q.pop();
 	}
 	q = CopyQueueToVector(v);
@@ -71,7 +76,9 @@ Pair Min(Qu q) {
 	Pair mi = q.front();
 	Vec v = CopyQueueToVector(q);
 	while (!q.empty()) {
-		if (q.front() < mi) { mi = q.front(); }
+		if (q.front() < mi) { 
+			mi = q.front(); 
+		}
 		q.pop();
 	}
 	q = CopyQueueToVector(v);
@@ -100,9 +107,9 @@ int main()
 	cout << "n?";
 	cin >> n;
 	q = MakeQueue(n);
-	Print(q);
+	Print<int>();
 	AddToQueue(q, p);
 	cout << "Sum: \n";
 	Sum(q);
-	Print(q);
+	Print<int>();
 }

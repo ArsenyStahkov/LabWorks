@@ -1,9 +1,8 @@
 #include "Pair.h"
 
 Pair::Pair() { first = 0; second = 0; }
-
+Pair::~Pair() {}
 Pair::Pair(int F, double S) { first = F; second = S; }
-
 Pair::Pair (const Pair& p) { first = p.first; second = p.second; }
 
 Pair Pair::operator = (const Pair& p) {
@@ -13,17 +12,15 @@ Pair Pair::operator = (const Pair& p) {
 	return *this;
 }
 
-Pair::~Pair() {}
-
 ostream& operator << (ostream& out, const Pair& p) {
-	out << "Первое число: " << p.first << " Второе число: " << p.second << "\n";
+	out << "Первое число (int): " << p.first << " Второе число (double): " << p.second << "\n";
 	return out;
 }
 
 istream& operator >> (istream& in, Pair& p) {
-	cout << "Введите первое число: ";
+	cout << "Введите первое число (int): ";
 	in >> p.first;
-	cout << "Введите второе число: ";
+	cout << "Введите второе число (double): ";
 	in >> p.second;
 	return in;
 }

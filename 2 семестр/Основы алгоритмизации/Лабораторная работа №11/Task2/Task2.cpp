@@ -13,45 +13,52 @@ Listing MakeVector(double n) {
 }
 
 void PrintVector(Listing l) {
-	for (int i = 0; i < l.size(); i++)
-		{ cout << l[i] << " "; }
+	for (auto i = l.begin(); i != l.end(); ++i) { 
+		cout << *i << " "; 
+	}
 	cout << endl;
 }
 
 double Average(Listing l) {
 	double a = 0;
-	for (int i = 0; i < l.size(); i++)
-		{ a += l[i]; }
+	for (auto i = l.begin(); i != l.end(); ++i) {
+		a += *i; 
+	}
 	int n = l.size();
 	return a / n;
 }
 
 void AddValue(Listing& l, double el) {
-	int pos = l.size();
-	l.insert(l.begin() + pos, el);
+	l.push_back(Average(l));
 }
 
 int Min(Listing l) {
-	int mi = l[0], n = 0;
-	for (int i = 0; i < l.size(); i++) {
-		if (mi > l[i]) { mi = l[i]; n = i; }
+	int min = NULL;
+	for (auto i = l.begin(); i != l.end(); ++i) {
+		if (min > * i || min == NULL) {
+			min = *i;
+		}
 	}
-	return n;
+	return min;
 }
 
 int Max(Listing l) {
-	int ma = l[0], n = 0;
-	for (int i = 0; i < l.size(); i++) {
-		if (ma < l[i]) { ma = l[i]; n = i; }
+	int max = NULL;
+	for (auto i = l.begin(); i != l.end(); ++i) {
+		if (max < *i || max == NULL) {
+			max = *i;
+		}
 	}
-	return n;
+	return max;
 }
 
 void Sum(Listing& l) {
-	double mi = Min(l);
-	double ma = Max(l);
-	for (int i = 0; i < l.size(); i++)
-		{ l[i] = l[i] + (l[mi] + l[ma]); }
+	double min = Min(l);
+	double max = Max(l);
+	for (auto i = l.begin(); i != l.end(); ++i)
+	{
+		*i = *i + min + max;
+	}
 }
 
 int main()

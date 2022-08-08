@@ -5,96 +5,143 @@
 #include <string>
 using namespace std;
 
-int make_file(const char* f_first) {
-	// Открыть для записи
+int MakeFile(const char* f_first) {
 	fstream stream(f_first, ios::out | ios::trunc);
-	// Ошибка открытия файла
-	if (!stream) { return -1; }
+	if (!stream) return -1;
 	cout << "\nФайл создан!\n";
 	stream.close();
 	return 0;
 }
 
-int print_file(const char* f_first) {
-	// Открыть для добавления
-	fstream stream(f_first, ios::in);
-	// Ошибка открытия файла
-	if (!stream) { return -1; }
-	stream.close();
-	return 0;
+void PrintFile(const char* f_first) {
+	string text;
+	ifstream f(f_first);
+	if (f.is_open()) {
+		getline(f, text, '\f');
+	}
+	else {
+		cout << "Невозможно прочитать файл!\n";
+	}
+	cout << text << endl;
+	f.close();
 }
 
-int del_file(const char* f_first, int k) {
-	// Открыть для записи
+int ClearFile(const char* f_first, int k) {
+	string text = f_first;
 	fstream temp("temp ", ios::out);
-	// Открыть для чтения
 	fstream stream(f_first, ios::in);
-	// Ошибка открытия файла
-	if (!stream) { return -1; }
+	if (!stream) return -1;
 	stream.close();
 	temp.close();
-	// Удалить старый файл
 	remove(f_first);
-	// Переименовать temp
 	rename("temp", f_first);
+	cout << "\nВсе записи из файла удалены!\n";
 	return 0;
 }
 
-int add_file(const char* f_first, int k, Pair pp) {
+int AddFile(const char* f_first, Pair pp) {
 	fstream temp("temp", ios::out);
 	fstream stream(f_first, ios::in);
-	if (!stream) { return -1; }
+	if (!stream) return -1;
 	Pair p;
 	int i = 0, l = 0;
 	while (stream >> p) {
 		if (stream.eof()) break;
 		i++;
-		if (i == k) { temp << pp; l++; }
+	}
+	stream.close();
+	temp.close();
+	remove(f_first);
+	rename("temp", f_first);
+	return l;
+}
+
+int AddNote(const char* f_first, Pair pp) {
+	fstream stream(f_first, ios::app);
+	if (!stream) return -1;
+	stream << pp;
+	cout << "\nФайл изменен!\n";
+	return 1;
+}
+
+int ChangeFile(const char* f_first, Pair pp) {
+	fstream temp("temp", ios::out);
+	fstream stream(f_first, ios::in);
+	if (!stream) { return -1; }
+	Pair p;
+	int i, l;
+	i = 0;
+	l = 0;
+	while (stream >> p) {
+		if (stream.eof()) break;
+		i++;
 		temp << p;
 	}
 	stream.close();
 	temp.close();
 	remove(f_first);
 	rename("temp", f_first);
-	// Количество добавленных
+	cout << "\nФайл изменен!\n";
 	return l;
 }
 
-int add_end(const char* f_first, Pair pp) {
-	// Открыть для добавления
-	fstream stream(f_first, ios::app);
-	// Ошибка открытия файла
-	if (!stream) { return -1; }
-	// Новая запись
-	stream << pp;
-	return 1;
-}
+void HandleFile1(const char* f_first, const char* f_result, int nMoreThan) {
+	ifstream streamInput(f_first); // Input stream
+	ofstream streamOutput(f_result); // Output stream
 
-int change_file(const char* f_first, int k, Pair pp) {
-	fstream temp("temp", ios::out);
-	fstream stream(f_first, ios::in);
-	if (!stream) { return -1; }
-	Pair p;
-	int i, l;
-	i = 0; 
-	l = 0;
-	char x;
-	while (stream >> p) {
-		if (stream.eof()) break;
-		i++;
-		if (i == k) {
-			cout << p << " - is changing... Продолжить?[y/n]\n";
-			cin >> x;
-			if (x == 'n' || x == 'N') break;
-			temp << pp;
-			l++;
+	int a = 0;
+	
+	while (streamInput >> a) { // Read line by line
+		if (a > nMoreThan) {
+			string s = to_string(a); // Convert
+			streamOutput << s << endl; // Write to output stream
 		}
-		else temp << p;
 	}
-	stream.close();
-	temp.close();
-	remove(f_first);
-	rename("temp", f_first);
-	// Возвращаем количество измененных элементов
-	return l;
+
+	streamInput.close();
+	streamOutput.close();
+}
+
+void HandleFile2(const char* f_first, const char* f_result, int nValue, int L) {
+	ifstream streamInput(f_first); // Input stream
+	ofstream streamOutput(f_result); // Output stream
+
+	int a = 0;
+
+	while (streamInput >> a) { // Read line by line
+
+		if (a == nValue) {
+			a += L; // a = a + L
+		}
+
+		string s = to_string(a); // Convert
+		streamOutput << s << endl; // Write to output stream
+	}
+
+	streamInput.close();
+	streamOutput.close();
+}
+
+void HandleFile3(const char* f_first, const char* f_result, int nNumber, int nCount) {
+	ifstream streamInput(f_first); // Input stream
+	ofstream streamOutput(f_result); // Output stream
+
+	int a = 0;
+	int nLine = 1; // Line number from 1
+
+	while (streamInput >> a) { // Read line by line
+
+		string s = to_string(a); // Convert
+		streamOutput << s << endl; // Write to output stream
+
+		if (nLine == nNumber) {
+			for (int i = 0; i < nCount; i++) { // Add records
+				streamOutput << i << "\n";
+			}
+		}
+		nLine++; // nLine = nLine + 1
+	}
+
+	streamInput.close();
+	streamOutput.close();
 }

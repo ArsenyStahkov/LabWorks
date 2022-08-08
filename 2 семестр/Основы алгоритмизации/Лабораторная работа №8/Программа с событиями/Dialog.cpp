@@ -5,10 +5,10 @@
 using namespace std;
 
 Dialog::Dialog(void): Vector() { EndState = 0; }
-
 Dialog::~Dialog(void) {}
 
 void Dialog::GetEvent(TEvent& event) {
+	// Строка содержит коды операций
 	string OpInt = "+-?/qam";
 	string s;
 	string param;
@@ -35,7 +35,9 @@ void Dialog::GetEvent(TEvent& event) {
 		}
 
 		if (s.length() > 1) {
+			// Возвращаем подстроку строки s начиная с символа с индексом 1
 			param = s.substr(1, s.length() - 1);
+			// Конвертируем строку в число
 			int A = atoi(param.c_str());
 			event.a = A;
 		}
@@ -54,14 +56,12 @@ int Dialog::Execute() {
 }
 
 int Dialog::Valid() {
-	if (EndState == 0)
-		return 0;
-	else
-		return 1;
+	int result;
+	result = (EndState == 0) ? 0 : 1;
+	return result;
 }
 
 void Dialog::ClearEvent(TEvent& event) { event.what = evNothing; }
-
 void Dialog::EndExec() { EndState = 1; }
 
 void Dialog::HandleEvent(TEvent& event) {

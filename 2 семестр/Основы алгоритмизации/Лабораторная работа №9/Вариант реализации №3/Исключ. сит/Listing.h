@@ -5,9 +5,12 @@
 using namespace std;
 
 const int MAX_SIZE = 30;
+
 class Listing {
 	int size;
 	int* beg;
+	friend ostream& operator << (ostream& out, const Listing& l);
+	friend istream& operator >> (istream& in, Listing& l);
 public:
 	Listing() { size = 0; beg = 0; };
 	Listing(int s);
@@ -18,6 +21,4 @@ public:
 	int operator[] (int i);
 	Listing operator+(int a);
 	Listing operator*(int a);
-	friend ostream& operator << (ostream& out, const Listing& l);
-	friend istream& operator >> (istream& in, Listing& l);
 };

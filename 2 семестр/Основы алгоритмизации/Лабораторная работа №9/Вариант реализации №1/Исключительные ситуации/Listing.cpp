@@ -5,8 +5,9 @@ Listing::Listing(int s) {
 	if (s > MAX_SIZE) { throw 1; }
 	size = s;
 	beg = new int[s];
-	for (int i = 0; i < size; i++) 
-		{ beg[i] = 0; }
+	for (int i = 0; i < size; i++) { 
+		beg[i] = 0; 
+	}
 }
 
 Listing::Listing(const Listing &l) {
@@ -50,11 +51,15 @@ ostream& operator << (ostream& out, const Listing& l) {
 
 istream& operator >> (istream& in, Listing& l) {
 	for (int i = 0; i < l.size; i++)
-		{ cout << ">"; in >> l.beg[i];}
+		{ cout << ">"; 
+		in >> l.beg[i];
+	}
 	return in;
 }
 // Если индекс отрицательный, генерируется исключение
-int Listing::operator [] (int i) { if (i < 0) { throw 2; } }
+int Listing::operator [] (int i) { 
+	if (i < 0) { throw 2; } 
+}
 
 Listing Listing::operator*(int a) {
 	Listing temp(size, beg);

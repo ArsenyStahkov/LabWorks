@@ -42,22 +42,22 @@ void Vector::Add() {
 				if (cur < size) 
 					{ beg[cur] = p; cur++; }
 			}
-			else
-				return;
+			else { return; }
 	}
 }
 
 void Vector::Show() {
 	if (cur == 0) { cout << "Пусто!\n"; }
 	Object** p = beg;
-	for (int i = 0; i < cur; i++)
-		{ (*p)->Show(); p++; }
+	for (int i = 0; i < cur; i++) { 
+		(*p)->Show(); p++; 
+	}
 }
 
 int Vector::operator() () { return cur; }
 
 void Vector::Del() {
-	if (cur == 0) { return; }
+	if (cur == 0) return;
 	cur--;
 }
 

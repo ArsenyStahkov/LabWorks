@@ -32,30 +32,35 @@ Listing<T>::~Listing(void) {}
 template <class T>
 Listing<T>::Listing(int n) {
 	T a;
-	for (int i = 0; i < n i++)
-		{ cin >> a; v[i] = a; }
+	for (int i = 0; i < n i++) { 
+		cin >> a; v[i] = a; 
+	}
 	len = v.size();
 }
 
 // Вывод контейнера на экран
 template <class T>
 void Listing<T>::Print() {
-	for (int i = 0; i < v.size(); i++)
-		{ cout << i << " - " << v[i] << " \n"; }
+	for (int i = 0; i < v.size(); i++) { 
+		cout << i << " - " << v[i] << " \n"; 
+	}
 	cout << endl;
 }
 
 template <class T>
 T Listing<T>::Average() {
 	Pair a = v[0];
-	for (int i = 1; i < v.size(); i++)
-		{ a = a + v[i]; }
+	for (int i = 1; i < v.size(); i++) { 
+		a = a + v[i]; 
+	}
 	int n = v.size();
 	return a/n;
 }
 
 template <class T>
-void Listing<T>::Add(double n, T el) { v.insert(maker_pair(n, el)); }
+void Listing<T>::Add(double n, T el) { 
+	v.insert(maker_pair(n, el)); 
+}
 
 template <class T>
 double Listing<T>::Min() {
@@ -91,10 +96,10 @@ double Listing<T>::Max() {
 
 template <class T>
 void Listing<T>::Sum() {
-	T mi = v[Min()];
-	T ma = v[Max()];
-	cout << "Min = " << mi << endl;
-	cout << "Max = " << ma << endl;
+	T min = v[Min()];
+	T max = v[Max()];
+	cout << "Минимальное значение: " << min << endl;
+	cout << "Максимальное значение: " << max << endl;
 	for (int i = 0; i < v.size(); i++)
 		{ v[i] = v[i] + mi + ma; }
 }

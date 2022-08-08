@@ -4,17 +4,19 @@
 
 int main()
 {
+	setlocale(LC_ALL, "Rus");
+
 	int n;
 	cout << "N?";
 	cin >> n;
 	Listing <Pair> v(n);
 	v.Print();
 	Pair p = v.Average();
-	cout << "Average = " << t << endl;
-	cout << "Add average" << endl;
-	v.Add(t);
+	cout << "Среднее значение: " << p << endl;
+	cout << "Добавляем значение 2.5" << endl;
+	v.Add(2.5, p);
 	v.Print();
-	cout << "Summa: \n";
+	cout << "Сумма: \n";
 	v.Sum();
 	v.Print();
 }

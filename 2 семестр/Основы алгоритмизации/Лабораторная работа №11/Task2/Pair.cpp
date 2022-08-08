@@ -2,7 +2,9 @@
 
 // Перегрузка операции присваивания
 Pair& Pair::operator = (const Pair& p) {
-	if (&p == this) { return *this; }
+	if (&p == this) { 
+		return *this; 
+	}
 	first = p.first;
 	second = p.second;
 	return *this;
@@ -10,9 +12,9 @@ Pair& Pair::operator = (const Pair& p) {
 
 // Перегрузка глобальной функции-операции ввода
 istream& operator >> (istream& in, Pair& p) {
-	cout << "Введите первое число: ";
+	cout << "Введите первое число (int): ";
 	in >> p.first;
-	cout << "Введите второе число: ";
+	cout << "Введите второе число (double): ";
 	in >> p.second;
 	return in;
 }
@@ -22,20 +24,20 @@ ostream& operator << (ostream& out, const Pair& p) {
 	return (out << p.first << " : " << p.second);
 }
 
-bool Pair::operator < (const Pair & p) {
-	if (first < p.first) { return true; }
-	if (first == p.first && second < p.second) { return true; }
+bool Pair::operator < (const Pair& p) {
+	if (first < p.first) return true; 
+	if (first == p.first && second < p.second) return true;
 	return false;
 }
 
-bool Pair::operator > (const Pair & p) {
-	if (first > p.first) { return true; }
-	if (first == p.first && second > p.second) { return true; }
+bool Pair::operator > (const Pair& p) {
+	if (first > p.first) return true;
+	if (first == p.first && second > p.second) return true;
 	return false;
 }
 
 // Перегрузка вычитания пар чисел
-Pair Pair::operator-(const Pair & t) {
+Pair Pair::operator-(const Pair& t) {
 	int temp = first;
 	int temp2 = t.first;
 	double tempDouble = second;
@@ -71,7 +73,7 @@ Pair Pair::operator/(const Pair& t) {
 }
 
 // Перегрузка операции добавления константы к паре
-Pair Pair::operator*(const Pair & a) {
+Pair Pair::operator*(const Pair& a) {
 	const double number = 10.5;
 	int temp = first;
 	double temp2 = second;
@@ -88,7 +90,9 @@ Pair Pair::operator*(const Pair & a) {
 }
 
 // Перегрузка оператора индексирования
-Pair Pair::operator[](const Pair& t) {
+/*Pair Pair::operator[](const Pair& t) {
 	Pair* p;
+	p->first = 0;
+	p->second = 0;
 	return p[10];
-}
+}*/

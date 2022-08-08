@@ -3,7 +3,9 @@
 #include <iostream>
 using namespace std;
 
-struct Magazine : public Print {
+class Magazine : public Print {
+	int page;
+public:
 	Magazine(void);
 	~Magazine(void);
 	void Show();
@@ -13,7 +15,4 @@ struct Magazine : public Print {
 	int Get_page() { return page; }
 	void Set_Page(int);
 	Magazine& operator = (const Magazine&);
-protected:
-	int page;
 };
-

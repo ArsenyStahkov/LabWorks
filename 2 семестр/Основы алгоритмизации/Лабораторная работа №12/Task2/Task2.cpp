@@ -9,20 +9,23 @@ typedef TSet::iterator it;
 TSet MakeSet(int n) {
 	TSet s;
 	double a;
-	for (int i = 0; i < n; i++)
-		{ cin >> a; s.insert(a); }
+	for (int i = 0; i < n; i++) { 
+		cin >> a; s.insert(a); 
+	}
 	return s;
 }
 
 void PrintSet(TSet s) {
-	for (int i = 0; i < s.size(); i++)
-		{ cout << i << " - " << s[i] << " \n"; }
+	for (int i = 0; i < s.size(); i++) { 
+		cout << i << " - " << i << " \n"; 
+	}
 }
 
 Pair Average(TSet s) {
 	Pair a = s[0];
-	for (int i = 1; i < s.size(); i++)
-		{ a += s[i]; }
+	for (int i = 1; i < s.size(); i++) { 
+		a += i; 
+	}
 	int n = s.size();
 	return a/n;
 }
@@ -34,7 +37,9 @@ int Min(TSet v) {
 	k = 0;
 	Pair s = (*i).second;
 	while (i != v.end()) {
-		if (s > (*i).second) { s = (*i).second; num = k; }
+		if (s > (*i).second) { 
+			s = (*i).second; num = k; 
+		}
 		i++;
 		k++;
 	}
@@ -58,19 +63,20 @@ int Max(TSet v) {
 void Sum(TSet& v) {
 	Pair mi = v[Min(v)];
 	Pair ma = v[Max(v)];
-	for (int i = 0; i < v.size(); i++)
-		{ v[i] = v[i] + v[mi] + v[ma]; }
+	for (int i = 0; i < v.size(); i++) { 
+		v[i] = v[i] + v[mi] + v[ma]; 
+	}
 }
 
 int main()
 {
 	int n;
-	cout << "N?";
+	cout << "Введите значение n (int)" << endl;
 	cin >> n;
 	set<double, Pair> s = MakeSet(n);
 	PrintSet(s);
 	Pair el = Average(s);
-	cout << "average = " << el << endl;
+	cout << "Среднее значение: " << el << endl;
 	s.insert(n);
 	PrintSet(s);
 	Sum(s);

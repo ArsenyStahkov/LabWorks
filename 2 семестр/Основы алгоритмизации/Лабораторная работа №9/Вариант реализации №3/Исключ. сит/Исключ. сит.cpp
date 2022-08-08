@@ -18,10 +18,11 @@ int main()
 		cout << x[i] << endl;
 		y = x + 3;
 		cout << y;
-		x*1;
+		//x * 1;
 		cout << x;
 	}
-	catch (Error & e) 
-		{ e.what(); }
+	catch (Error& e) { 
+		e.what(); 
+	}
 	return 0;
 }

@@ -6,11 +6,13 @@
 
 int main()
 {
+	setlocale(LC_ALL, "RUS");
+
 	Listing<Pair>l(3);
 	l.Print();
 	Pair p = l.Average();
-	cout << "\nAverage = " << p << endl;
-	cout << "Add average" << endl;
+	cout << "\nСреднее значение: " << p << endl;
+	cout << "Добавляем среднее значение:" << endl;
 	l.Add(p);
 	l.Print();
 	l.Sum();

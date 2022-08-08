@@ -3,65 +3,80 @@
 #include <cstdlib>
 using namespace std;
 
-// Определение типа работы с вектором
+// Определение типа работы со списком
 typedef list<double>Listing;
-// Формирование вектора
+// Формирование списка
 Listing MakeList(double n) {
 	Listing l;
+	int a;
 	for (int i = 0; i < n; i++) {
-		int a = rand() % 100 - 50;
-		// Добавляем а в конец вектора
+		cin >> a;
+		// Добавляем а в конец списка
 		l.push_back(a);
 	}
 	return l;
 }
 
-// Печать вектора
-void PrintVector(Listing l) {
-	for (int i = 0; i < l.size(); i++)
-		{ cout << l[i] << " "; }
+// Вывод списка на экран
+void PrintList(Listing l) {
+	for (auto i = l.begin(); i != l.end(); ++i) {
+		cout << *i << ";  ";
+	}
 	cout << endl;
 }
 
-// Нахождение среднего значения
-double Average(Listing l) {
-	double a = 0;
-	for (int i = 0; i < l.size(); i++)
-		{ a += l[i]; }
-	int n = l.size();
-	return a/n;
+// Нахождение среднего значения и добавление в конец списка
+Listing AddAverageValue(Listing l) {
+	double sum = 0;
+	for (auto i = l.begin(); i != l.end(); ++i) {
+		sum += *i;
+	}
+	int size = l.size();
+	l.push_back(sum/size);
+	return l;
 }
 
-// Добавление среднего значения в конец списка
-void AddValue(Listing& l, double el) {
-	l.insert(l.begin() + l.size(), el);
+// Удаление элементов в диапазоне (10-50)
+Listing DeleteRange(Listing l) {
+	for (auto i = l.begin(); i != l.end(); ++i) {
+		if (*i >= 10 && *i <= 50) {
+			l.erase(i, i);
+		}
+	}
+	return l;
 }
 
 // Поиск минимального элемента
-int Min(Listing l) {
-	int mi = l[0], n = 0;
-	for (int i = 0; i < l.size(); i++) {
-		if (mi > l[i]) { mi = l[i]; n = i; }
+double Min(Listing l) {
+	double min = NULL;
+	for (auto i = l.begin(); i != l.end(); ++i) {
+		if (min > *i || min == NULL) {
+			min = *i; 
+		}
 	}
-	return n;
+	return min;
 }
 
 // Поиск максимального элемента
-int Max(Listing l) {
-	int ma = l[0], n = 0;
-	for (int i = 0; i < l.size(); i++) {
-		if (ma < l[i]) { ma = l[i]; n = i; }
+double Max(Listing l) {
+	double max = NULL;
+	for (auto i = l.begin(); i != l.end(); ++i) {
+		if (max < *i || max == NULL) {
+			max = *i;
+		}
 	}
-	return n;
+	return max;
 }
 
 // Сложение каждого элемента с суммой мин. и макс. значений
-void Sum(Listing& l) {
-	double mi = Min(l);
-	double ma = Max(l);
-	for (int i = 0; i < l.size(); i++)
-		{ l[i] = l[i] + l[mi] + l[ma]; }
-}
+Listing Sum(Listing l) {
+	double min = Min(l);
+	double max = Max(l);
+	for (auto i = l.begin(); i != l.end(); ++i) {
+		*i = *i + min + max;
+	}
+	return l;
+};
 
 int main()
 {
@@ -70,21 +85,25 @@ int main()
 	try {
 		list<double> l;
 		list<double>::iterator vi = l.begin();
-		// Формирование вектора
+
 		double n;
-		cout << "Введите длину списка";
+		cout << "Введите длину списка: ";
 		cin >> n;
 		l = MakeList(n);
-		PrintVector(l);
-		// Вычисление среднего
-		double el = Average(l);
-		// Добавление элемента в конец и вывод на экран
-		int pos = 3;
-		AddValue(l, el);
-		PrintVector(l);
-		// К каждому элементу прибавить сумму макс. и мин. значения
-		Sum(l);
-		PrintVector(l);
+		cout << "\nНаш список:\n";
+		PrintList(l);
+
+		l = AddAverageValue(l);
+		cout << "\nНаш список после добавления среднего арифметического в конец:\n";
+		PrintList(l);
+
+		l = DeleteRange(l);
+		cout << "\nНаш список после удаления чисел в диапазоне (10-50):\n";
+		PrintList(l);
+
+		l = Sum(l);
+		cout << "\nНаш список после прибавления к каждому элементу суммы макс. и мин. значений:\n";
+		PrintList(l);
 	}
 	catch (int) {
 		cout << "Ошибка!\n";

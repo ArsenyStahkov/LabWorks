@@ -8,10 +8,15 @@ const int cmShow = 4;
 const int cmMake = 6;
 const int cmQuit = 101;
 
+// Структура события
 struct TEvent {
 	int what;
 	union {
 		int command;
-		struct { int message; int a; };
+		struct { 
+			int message; 
+			// Параметр команды
+			int a; 
+		};
 	};
 };

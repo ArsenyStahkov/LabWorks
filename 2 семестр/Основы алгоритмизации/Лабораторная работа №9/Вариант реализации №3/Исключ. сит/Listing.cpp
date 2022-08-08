@@ -50,8 +50,10 @@ ostream& operator << (ostream& out, const Listing& l) {
 }
 
 istream& operator >> (istream& in, Listing& l) {
-	for (int i = 0; i < l.size; i++)
-		{ cout << ">"; in >> l.beg[i]; }
+	for (int i = 0; i < l.size; i++) { 
+		cout << ">"; 
+		in >> l.beg[i]; 
+	}
 	return in;
 }
 
