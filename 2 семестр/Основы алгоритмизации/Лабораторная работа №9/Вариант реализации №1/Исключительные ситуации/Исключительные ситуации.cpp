@@ -21,8 +21,9 @@ int main()
 		y = x * 1;
 		cout << y;
 	}
-	catch(int) 
-		{ cout << "Ошибка!\n"; }
+	catch(int) { 
+		cout << "Ошибка!\n"; 
+	}
 
 	return 0;
 }

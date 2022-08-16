@@ -89,6 +89,11 @@ Pair Pair::operator*(const Pair& a) {
 	return p;
 }
 
+bool Pair::operator==(const Pair& a) {
+	if (first == a.first && second == a.second) return true;
+	return false;
+}
+
 // Перегрузка оператора индексирования
 /*Pair Pair::operator[](const Pair& t) {
 	Pair* p;

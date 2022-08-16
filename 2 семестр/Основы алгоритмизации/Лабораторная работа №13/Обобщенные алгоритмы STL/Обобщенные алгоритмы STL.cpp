@@ -39,6 +39,24 @@ TList Average(TList l) {
 	return l;
 }
 
+//Удаляем числа из диапазона(10 - 50)
+TList DeleteRange(TList l) {
+	auto i = l.begin();
+	while (i != l.end()) {
+		Pair value = *i;
+
+		if ((value.get_first() >= 10) && (value.get_first() <= 50) || 
+			(value.get_second() >= 10) && (value.get_second() <= 50)) {
+			l.erase(i++);
+		}
+		else {
+			++i;
+		}
+	}
+
+	return l;
+}
+
 // Поиск минимального значения
 Pair Min(TList l) {
 	Pair min;
@@ -83,14 +101,18 @@ int main()
 	l = MakeList(n);
 	cout << "\nНаш список:\n";
 	PrintList(l);
-	cout << "Находим среднее арифметическое и добавляем в список:\n";
+
+	cout << "Находим среднее арифметическое и добавляем в конец списка:\n";
 	l = Average(l);
 	PrintList(l);
+
+	cout << "Удаляем числа из диапазона (10-50):\n";
+	l = DeleteRange(l);
+	PrintList(l);
+
 	cout << "К каждому элементу добавляем сумму макс. и мин. элементов:\n";
 	l = Sum(l);
 	PrintList(l);
-	//i = max_element(l.begin(), l.end());
-	//k = min_element(l.begin(), l.end());
-	//for_each(l.begin(), l.end(), Sum);
+
 	return 0;
 }

@@ -49,44 +49,35 @@ TSet Average(TSet v) {
 
 // Удаление элементов в заданном диапазоне (10-50)
 TSet DeleteRange(TSet v) {
-	for (auto i = v.begin(); i != v.end(); ++i) {
-		if (*i >= 10 && *i <= 50) { 
-			v.erase(i); 
+	for (auto i = v.begin(); i != v.end(); ) {
+		if (*i >= 10 && *i <= 50) {
+			i = v.erase(i);
+		}
+		else {
+			++i;
 		}
 	}
 	return v;
-}
-
-// Минимальное значение
-double Min(TSet v) {
-	double min = NULL;
-	for (auto i = v.begin(); i != v.end(); ++i) {
-		if ((min > * i) || (min == NULL)) {
-			min = *i;
-		}
-	}
-	return min;
-}
-
-// Максимальное значение
-double Max(TSet v) {
-	double max = NULL;
-	for (auto i = v.begin(); i != v.end(); ++i) {
-		if (max < *i || (max == NULL)) {
-			max = *i;
-		}
-	}
-	return max;
 }
 
 // Сумма каждого элемента с мин. и макс. значениями
 TSet Sum(TSet v) {
-	double min = Min(v);
-	double max = Max(v);
-	for (auto i = v.begin(); i != v.end(); ++i) {
-		v.insert(*i + min + max);
+	TSet newSet;
+	double min = *v.begin();
+	double max = NULL;
+	for (auto i = v.begin(); i != v.end(); i++) {
+		if (max == NULL || max < *i) {
+			max = *i;
+		}
 	}
-	return v;
+	double value;
+
+	for (auto i = v.begin(); i != v.end(); ) {
+		value = *i;
+		i = v.erase(i);
+		newSet.insert(value + min + max);
+	}
+	return newSet;
 }
 
 int main()

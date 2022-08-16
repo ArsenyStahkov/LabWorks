@@ -7,26 +7,31 @@ Listing::Listing(int s) {
 	if (s > MAX_SIZE) throw MaxSizeError();
 	size = s;
 	beg = new int[s];
-	for (int i = 0; i < size; i++)
-		{ beg[i] = 0; }
+	for (int i = 0; i < size; i++) { 
+		beg[i] = 0; 
+	}
 }
 
 Listing::Listing(const Listing& l) {
 	size = l.size;
 	beg = new int[size];
-	for (int i = 0; i < size; i++)
-		{ beg[i] = l.beg[i]; }
+	for (int i = 0; i < size; i++) { 
+		beg[i] = l.beg[i]; 
+	}
 }
 
 Listing::~Listing() { 
-	if (beg != 0) { delete[] beg; } 
+	if (beg != 0) { 
+		delete[] beg; 
+	} 
 }
 
 Listing::Listing(int s, int* mas) {
 	size = s;
 	beg = new int[size];
-	for (int i = 0; i < size; i++)
-		{ beg[i] = mas[i]; }
+	for (int i = 0; i < size; i++) { 
+		beg[i] = mas[i]; 
+	}
 }
 
 const Listing& Listing::operator = (const Listing& l) {
@@ -34,16 +39,18 @@ const Listing& Listing::operator = (const Listing& l) {
 	if (beg!= 0) { delete[] beg; }
 	size = l.size;
 	beg = new int[size];
-	for (int i = 0; i < size; i++)
-		{ beg[i] = l.beg[i]; }
+	for (int i = 0; i < size; i++) { 
+		beg[i] = l.beg[i]; 
+	}
 	return *this;
 }
 
 ostream& operator << (ostream& out, const Listing& l) {
 	if (l.size == 0) { out << "Пусто\n"; }
 	else {
-		for (int i = 0; i < l.size; i++)
-			{ out << l.beg[i] << " "; }
+		for (int i = 0; i < l.size; i++) { 
+			out << l.beg[i] << " "; 
+		}
 		out << endl;
 	}
 	return out;
@@ -58,13 +65,19 @@ istream& operator >> (istream& in, Listing& l) {
 }
 
 int Listing::operator [] (int i) {
-	if (i < 0) { throw IndexError1(); }
-	if (i >= size) { throw IndexError2(); }
+	if (i < 0) { 
+		throw IndexError1(); 
+	}
+	if (i >= size) { 
+		throw IndexError2(); 
+	}
 	return beg[i];
 }
 
 Listing Listing::operator+(int a) {
-	if (size + 1 == MAX_SIZE) { throw MaxSizeError(); }
+	if (size + 1 == MAX_SIZE) { 
+		throw MaxSizeError(); 
+	}
 	Listing temp(size + 1, beg);
 	temp.beg[size] = a;
 	return temp;

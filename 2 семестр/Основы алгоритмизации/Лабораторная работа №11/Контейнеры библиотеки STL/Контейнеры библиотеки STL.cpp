@@ -20,7 +20,7 @@ Listing MakeList(double n) {
 // Вывод списка на экран
 void PrintList(Listing l) {
 	for (auto i = l.begin(); i != l.end(); ++i) {
-		cout << *i << ";  ";
+		cout << *i << "\t";
 	}
 	cout << endl;
 }
@@ -38,11 +38,18 @@ Listing AddAverageValue(Listing l) {
 
 // Удаление элементов в диапазоне (10-50)
 Listing DeleteRange(Listing l) {
-	for (auto i = l.begin(); i != l.end(); ++i) {
-		if (*i >= 10 && *i <= 50) {
-			l.erase(i, i);
+	auto i = l.begin();
+	while (i != l.end()) {
+		double value = *i;
+
+		if ((value >= 10) && (value <= 50)) {
+			l.erase(i++);
+		}
+		else {
+			++i;
 		}
 	}
+
 	return l;
 }
 

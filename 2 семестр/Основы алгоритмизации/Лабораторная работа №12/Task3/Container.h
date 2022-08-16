@@ -86,7 +86,10 @@ double Listing<T>::Max() {
 	Pair ma = (*i).second;
 	while (i != v.end()) {
 		if ((*i).second.get_min() != 0 && (*i).second.get_sec() != 0) {
-			if (ma < (*i).second) { ma = (*i).second; num = k; }
+			if (ma < (*i).second) { 
+				ma = (*i).second; 
+				num = k; 
+			}
 			i++;
 			k++;
 		}

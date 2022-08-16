@@ -35,4 +35,5 @@ public:
 	//Pair operator[](const Pair&);
 	bool operator>(const Pair&);
 	bool operator<(const Pair&);
+	bool operator==(const Pair&);
 };

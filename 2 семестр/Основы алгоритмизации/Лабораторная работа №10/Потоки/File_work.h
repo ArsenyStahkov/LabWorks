@@ -86,15 +86,15 @@ int ChangeFile(const char* f_first, Pair pp) {
 }
 
 void HandleFile1(const char* f_first, const char* f_result, int nMoreThan) {
-	ifstream streamInput(f_first); // Input stream
-	ofstream streamOutput(f_result); // Output stream
+	ifstream streamInput(f_first);
+	ofstream streamOutput(f_result);
 
 	int a = 0;
 	
-	while (streamInput >> a) { // Read line by line
+	while (streamInput >> a) {
 		if (a > nMoreThan) {
-			string s = to_string(a); // Convert
-			streamOutput << s << endl; // Write to output stream
+			string s = to_string(a);
+			streamOutput << s << endl;
 		}
 	}
 
@@ -103,19 +103,18 @@ void HandleFile1(const char* f_first, const char* f_result, int nMoreThan) {
 }
 
 void HandleFile2(const char* f_first, const char* f_result, int nValue, int L) {
-	ifstream streamInput(f_first); // Input stream
-	ofstream streamOutput(f_result); // Output stream
+	ifstream streamInput(f_first);
+	ofstream streamOutput(f_result);
 
 	int a = 0;
 
-	while (streamInput >> a) { // Read line by line
-
+	while (streamInput >> a) {
 		if (a == nValue) {
-			a += L; // a = a + L
+			a += L;
 		}
 
-		string s = to_string(a); // Convert
-		streamOutput << s << endl; // Write to output stream
+		string s = to_string(a);
+		streamOutput << s << endl;
 	}
 
 	streamInput.close();
@@ -123,23 +122,23 @@ void HandleFile2(const char* f_first, const char* f_result, int nValue, int L) {
 }
 
 void HandleFile3(const char* f_first, const char* f_result, int nNumber, int nCount) {
-	ifstream streamInput(f_first); // Input stream
-	ofstream streamOutput(f_result); // Output stream
+	ifstream streamInput(f_first);
+	ofstream streamOutput(f_result);
 
 	int a = 0;
-	int nLine = 1; // Line number from 1
+	int nLine = 1;
 
-	while (streamInput >> a) { // Read line by line
+	while (streamInput >> a) {
 
-		string s = to_string(a); // Convert
-		streamOutput << s << endl; // Write to output stream
+		string s = to_string(a);
+		streamOutput << s << endl;
 
 		if (nLine == nNumber) {
-			for (int i = 0; i < nCount; i++) { // Add records
+			for (int i = 0; i < nCount; i++) {
 				streamOutput << i << "\n";
 			}
 		}
-		nLine++; // nLine = nLine + 1
+		nLine++;
 	}
 
 	streamInput.close();

@@ -13,20 +13,24 @@ Listing::Listing(int s) {
 Listing::Listing(const Listing &l) {
 	size = l.size;
 	beg = new int[size];
-	for (int i = 0; i < size; i++)
-		{ beg[i] = l.beg[i]; }
+	for (int i = 0; i < size; i++) { 
+		beg[i] = l.beg[i]; 
+	}
 }
 
 Listing::~Listing() {
-	if (beg != 0) { delete[] beg; }
+	if (beg != 0) { 
+		delete[] beg; 
+	}
 }
 
 Listing::Listing(int s, int *mas) {
 	if (s > MAX_SIZE) { throw 1; }
 	size = s;
 	beg = new int[size];
-	for (int i = 0; i < size; i++) 
-		{ beg[i] = mas[i]; }
+	for (int i = 0; i < size; i++) { 
+		beg[i] = mas[i]; 
+	}
 }
 
 const Listing& Listing::operator = (const Listing& l) {
@@ -34,31 +38,35 @@ const Listing& Listing::operator = (const Listing& l) {
 	if (beg != 0) { delete[]beg; }
 	size = l.size;
 	beg = new int[size];
-	for (int i = 0; i < size; i++)
-		{ beg[i] = l.beg[i]; }
+	for (int i = 0; i < size; i++) { 
+		beg[i] = l.beg[i]; 
+	}
 	return *this;
 }
 
 ostream& operator << (ostream& out, const Listing& l) {
 	if (l.size == 0) { out << "Пусто\n"; }
 	else {
-		for (int i = 0; i < l.size; i++)
-			{ out << l.beg[i] << " "; }
+		for (int i = 0; i < l.size; i++) { 
+			out << l.beg[i] << " "; 
+		}
 		out << endl;
 	}
 	return out;
 }
 
 istream& operator >> (istream& in, Listing& l) {
-	for (int i = 0; i < l.size; i++)
-		{ cout << ">"; 
+	for (int i = 0; i < l.size; i++) { 
+		cout << ">"; 
 		in >> l.beg[i];
 	}
 	return in;
 }
 // Если индекс отрицательный, генерируется исключение
 int Listing::operator [] (int i) { 
-	if (i < 0) { throw 2; } 
+	if (i < 0) { 
+		throw 2; 
+	} 
 }
 
 Listing Listing::operator*(int a) {
