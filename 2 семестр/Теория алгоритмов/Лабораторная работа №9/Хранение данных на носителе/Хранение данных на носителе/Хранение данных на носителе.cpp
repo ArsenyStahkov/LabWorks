@@ -1,60 +1,16 @@
 ﻿#include <iostream>
 #include <fstream>
 #include <string>
-#include <stdio.h>
-#include <conio.h>
+#include "Cpp.cpp"
+#include "C.cpp"
 #pragma warning(disable : 4996)
 using namespace std;
-
-// Выводим файл в консоль
-void PrintFile1(string path) {
-	ifstream file;
-	file.open(path);
-
-	if (!file.is_open()) {
-		cout << "Ошибка открытия файла!\n";
-	}
-	else {
-		string str;
-
-		while (!file.eof()) {
-			str = "";
-			getline(file, str);
-			cout << str << "\n";
-		}
-	}
-	file.close();
-}
-
-void AddString1(string path, string newString) {
-	ofstream out(path, ios::app);
-	if (out.is_open()) {
-		out << newString << "\n";
-	}
-	out.close();
-}
-
-// Удаляем элементы, у которых год выпуска меньше заданного
-void DeleteLessNotes1(string path, int nLessThan) {
-	ifstream file(path);
-	ofstream out(path);
-
-	int a = 0;
-
-	while (file >> a) {
-		if (a < nLessThan) {
-			string s = to_string(a);
-			out << s << endl;
-		}
-	}
-
-	file.close();
-	out.close();
-}
 
 // Функция С++
 int FirstStyle(string path)
 {
+	Handle1 handle1;
+	
 	// Создаем файл
 	ofstream FileCar(path);
 
@@ -65,18 +21,18 @@ int FirstStyle(string path)
 	FileCar << car1 << car2 << car3;
 	FileCar.close();
 	cout << "C++ style:\n\n";
-	PrintFile1(path);
+	handle1.PrintFile1(path);
 
 	// Добавляем в файл строчку
 	string car4 = "Peugeot\n2008\n500000\nblue\n";
-	AddString1(path, car4);
+	handle1.AddString1(path, car4);
 	cout << "--------------------\n\n";
-	PrintFile1(path);
+	handle1.PrintFile1(path);
 
 	// Удаляем элементы, у которых год выпуска меньше 2000
-	DeleteLessNotes1(path, 2000);
-	cout << "--------------------\n\n";
-	PrintFile1(path);
+	//handle1.DeleteLessNotes1(path, 2000);
+	//cout << "--------------------\n\n";
+	//handle1.PrintFile1(path);
 
 	return 0;
 }
@@ -84,6 +40,8 @@ int FirstStyle(string path)
 // Функция С
 int SecondStyle(string path)
 {
+	Handle2 handle2;
+
 	FILE* FileCar;
 	FileCar = fopen("car (C).txt", "w");
 
@@ -97,24 +55,9 @@ int SecondStyle(string path)
 
 	fclose(FileCar);
 
-	// Выводим файл в консоль 1-й раз
 	printf("C style:\n\n");
-	char line[255];
-	FILE* fin1;
-	fin1 = fopen("car (C).txt", "r");
-
-	fgets(line, 255, fin1);
-	printf("%s", line);
-
-	fgets(line, 255, fin1);
-	printf("%s", line);
-
-	fgets(line, 255, fin1);
-	printf("%s", line);
-
-	printf("\n");
-
-	fclose(fin1);
+	handle2.PrintFile2(3);
+	printf("--------------------\n\n");
 
 	// Добавляем в файл строчку
 	FILE* out;
@@ -129,19 +72,7 @@ int SecondStyle(string path)
 	FILE* fin2;
 	fin2 = fopen("car (C).txt", "r");
 
-	fgets(line2, 255, fin2);
-	printf("%s", line2);
-
-	fgets(line2, 255, fin2);
-	printf("%s", line2);
-
-	fgets(line2, 255, fin2);
-	printf("%s", line2);
-
-	fgets(line2, 255, fin2);
-	printf("%s", line2);
-
-	printf("\n");
+	handle2.PrintFile2(4);
 
 	fclose(fin2);
 

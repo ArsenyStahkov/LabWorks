@@ -8,7 +8,7 @@ int main()
 {
 	setlocale(LC_ALL, "Rus");
 
-	/*SingleList singleList;
+	SingleList singleList;
 	cout << "Односвязный список (0 - конец списка), для стека:\n\n";
 	singleList.GetData(true);
 	cout << "\nНаш список (стек):\n\n";
@@ -20,27 +20,25 @@ int main()
 	singleList.PrintData();
 	singleList.InsertDataAfterNegative();
 	cout << "\nДобавляем в список после каждого отрицательного элемента 0:\n\n";
-	singleList.PrintData();*/
+	singleList.PrintData();
 
-	/*DoubleList doubleList;
+	DoubleList doubleList;
 	cout << "\n\nДвусвязный список (0 - конец списка):\n\n";
 	doubleList.GetData();
 	cout << "\nНаш список:\n\n";
 	doubleList.PrintData();
 	doubleList.DeleteEvenNumbers();
 	cout << "\nУдаляем из списка все элементы с четными номерами:\n\n";
-	doubleList.PrintData();*/
+	doubleList.PrintData();
 
 	Tree tree;
 	cout << "\n\nБинарное дерево (0 - конец дерева):\n\n";
 	tree.GetData();
 	cout << "\nНаше дерево:\n\n";
 	tree.PrintData(tree.treetop);
-	char n;
-	cout << "\nНайдем кол-во элементов, начинающихся с определенного символа. Введите символ:\n\n";
-	cin >> n;
-	int count = tree.compare(tree.treetop, &n);
-	cout << count << " Строки с " << n << endl;
+	int count = tree.compare(tree.treetop, (char*)"1");
+	cout << endl << count << " строк, начинающихся с цифры 1" << endl;
 
 	return 0;
+
 }

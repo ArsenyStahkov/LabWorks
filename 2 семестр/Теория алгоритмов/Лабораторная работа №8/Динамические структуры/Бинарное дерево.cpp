@@ -4,7 +4,7 @@ using namespace std;
 // Заготовка бинарного дерева
 struct NameDataTree {
 	char* data;
-	NameDataTree* left, *right;
+	NameDataTree* left, * right;
 };
 
 struct Tree {
@@ -51,7 +51,7 @@ struct Tree {
 		char* data = NULL;
 
 		do {
-			data = new char[256];
+			data = new char[256]; // Allocate memory
 			cin >> data;
 			AddData(NULL, data);
 		} while (atoi(data) != 0);
@@ -75,7 +75,7 @@ struct Tree {
 
 		int str_size = strlen(startwith);
 
-		if (strlen(startwith) > 0) { // Если startwith не пустой
+		if (str_size > 0) { // If startwith is not empty
 			bResult = true;
 
 			for (int i = 0; i < str_size; i++) {

@@ -151,6 +151,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="C.cpp" />
+    <ClCompile Include="Cpp.cpp" />
     <ClCompile Include="Хранение данных на носителе.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
