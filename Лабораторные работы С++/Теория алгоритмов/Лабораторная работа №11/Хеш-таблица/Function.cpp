@@ -295,6 +295,17 @@ int AmountOfData() {
 	return n;
 }
 
+// Хеш-функция
+__inline unsigned long long hashcode(unsigned char* str) {
+	unsigned long long hash = 5381;
+	int c;
+
+	while (c = *str++) {
+		hash = hash % c;
+	}
+	return hash;
+}
+
 // Удаление данных
 /*void DeleteData() {
 	Copy();
